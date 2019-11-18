@@ -116,6 +116,7 @@ const SignUp = props => {
             <option value="bidders">Bidder</option>
             <option value="sellers">Seller</option>
           </select>
+          <button>Submit</button>
         </form>
       </div>
     </>
