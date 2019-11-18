@@ -22,6 +22,7 @@ const SignUp = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    //console.log(newUser)
     axios
       .post(
         `https://silent-auction-be.herokuapp.com/auth/register/${newUser.userType}`,
