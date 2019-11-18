@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddItem = () => {
-    const [selectedFile, setSelectedFile] = useState();
-    fileSelectedHandler = event => {
+const AddItem = (props) => {
+    const [selectedFile, setSelectedFile] = useState([]);
+    const fileSelectedHandler = event => {
         setSelectedFile(event.target.files[0]);
 
     }
 
-    fileUploadHandler = () => {
+    const fileUploadHandler = () => {
       //form data being sent  
-        const frmdata = new FormData();
-        fd.append('item-image', selectedFile, selectedFile.name);
-        axios
-        .post('https://reqres.in/api/users/', frmdata, {
-            onUploadProgress: ProgressEvent => {
-                console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')}
-        })
-        .then(res => {
-            console.log(res);
-        });
+        // const frmdata = new FormData();
+        // frmdata.append('item-image', selectedFile, selectedFile.name);
+        // axios
+        // .post('https://reqres.in/api/users/', frmdata, {
+        //     onUploadProgress: progressEvent => {
+        //         console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')}
+        // })
+        // .then(res => {
+        //     console.log(res);
+        // });
+        const showData = (props) => {
+            console.log(props);
+        }
     }
     return (
         <div>
-            <input 
-            style={{display: 'none'}}
+            <input       
             type='file' 
             onChange={fileSelectedHandler}
-            ref={fileInput => this.fileInput = fileInput} />
-            <buttonon onClick={() => this.fileInput.click()} >Pick File</buttonon>
+             />       
             <button onClick={fileUploadHandler}>Upload</button>
         </div>
     )
