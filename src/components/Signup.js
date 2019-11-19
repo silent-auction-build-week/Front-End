@@ -30,7 +30,6 @@ const SignUp = props => {
     password: ""
   });
   const [userType, setUserType] = useState();
-  const [token, setToken] = useState()
 
   const handleChange = e => {
     if(e.target.name === "userType"){
