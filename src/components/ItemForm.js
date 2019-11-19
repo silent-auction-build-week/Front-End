@@ -62,46 +62,46 @@ return (
         Item Name:
         <Field className='item-name'
         border={errors.itemName && '1px solid red'} 
-        name='itemname'
+        name='item'
         type="text" 
         ></Field> 
         <br/>
-        {touched.itemName && errors.itemName && (
-        <p className='errors' >{errors.itemName}</p>
+        {touched.item && errors.item && (
+        <p className='errors' >{errors.item}</p>
         )}    
         </Label>
         <Label>
        <span>Start Date:</span>       
         <Field className='start-date' 
-        name='startdate'
+        name='start'
         type="text" 
         ></Field >        
         <br/>
-        {touched.startDate && errors.startDate && (
-        <p className='errors' >{errors.startDate}</p>
+        {touched.start && errors.start && (
+        <p className='errors' >{errors.start}</p>
         )}
         </Label>
         <Label>
         <span>End Date:</span>       
         <Field className='end-date'
-        name='enddate' 
+        name='end' 
         type="text" 
         ></Field> 
-        {touched.endDate && errors.endDate && (
-        <p className='errors' >{errors.endDate}</p>
+        {touched.end && errors.end && (
+        <p className='errors' >{errors.end}</p>
         )}        
          </Label>
          <br/>
          <Label>       
         <Field className='start-bid'
-        name='startbid' 
+        name='bid' 
         type="text" 
         placeholder='  Starting Bid'
         ></Field> 
         <br/>
         
-        {touched.startBid && errors.startBid && (
-        <p className='errors' >{errors.startBid}</p>
+        {touched.bid && errors.bid && (
+        <p className='errors' >{errors.bid}</p>
         )}
         </Label>
        
@@ -122,7 +122,16 @@ return (
         
         <Label>
         <Button type='submit' >Add Item</Button>
-        </Label>      
+        </Label> 
+        {nameForm.map(item => (
+        <ul key={item.id}>
+          <li>Species: {item.species}</li>
+          <li>Size: {item.size}</li>
+        </ul>
+      ))}
+
+
+
     </Form>
 
   
@@ -131,24 +140,24 @@ return (
 
 
 const FormikItemForm = withFormik({
-    mapPropsToValues({ itemname, startdate, enddate, startbid, description }) {
+    mapPropsToValues({ item, start, end, bid, description }) {
         return {
             
-            itemname: itemname || '',
-            startdate: startdate || '',
-            enddate: enddate || '',
-            startbid: startbid || '',
+            item: item || '',
+            start: start || '',
+            end: end || '',
+            bid: bid || '',
             description: description || ''
 
         };
     },
     validationSchema: Yup.object().shape({
 
-        itemname: Yup.string().required(),
-        startdate: Yup.string().required(),
-        enddate: Yup.string().required(),
-        startbid: Yup.string().required(),
-        description: Yup.string().required()        
+        item: Yup.string().required('item name needed').min(3, 'Too short'),
+        start: Yup.string().required('start date needed'),
+        end: Yup.string().required('end date needed'),
+        bid: Yup.string().required('must put starting bid'),
+        description: Yup.string().required('Item Description needed')        
     }),
     handleSubmit(values, { setStatus }) {
         axios
