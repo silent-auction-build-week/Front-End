@@ -3,11 +3,20 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const FileSelect = styled.div`
-    text-align: center;
+    
     width: 350px;
-    margin-top: -1%;
+    margin-top: 1%;
+    margin-left: 12%;   
+`
+const UploadButton = styled.button`
+    width: 30%;
+    margin-left: -22%
+    margin-right: 12%
+`
+const ChooseFile = styled.button `
     
 `
+//Start of AddItem component
 
 const AddItem = (props) => {
     const [selectedFile, setSelectedFile] = useState([]);
@@ -39,14 +48,14 @@ const AddItem = (props) => {
 
     return (
         <FileSelect>
-            <input       
+            <input className='choose-file'      
             type='file' 
-            onChange={fileSelectedHandler}
-             />       
-            <button 
+            onChange={fileSelectedHandler}></input>
+                   
+            <UploadButton 
             onClick={fileUploadHandler}
             // onChange={ this.handleChange }
-            >Upload</button>
+            >Upload</UploadButton>
         </FileSelect>
     )
 

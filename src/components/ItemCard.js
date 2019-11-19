@@ -3,26 +3,37 @@ import ItemForm from './ItemForm';
 import AddItem from './AddItem';
 import styled from 'styled-components';
 
+
 const MainDiv = styled.div`
+display: flex;
+flex-direction: column;
 border-radius: 10px;
-width: 80vw;
+width: 40vw;
 min-height: 70vh;
-max width: 1024 px;
+max width: 440 px;
 margin: 35px auto;
 background: #fff;
-padding: 15px;
+padding: 1%;
 box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 
 `
 
 const ItemBox = styled.div `
+
 border: 1px solid grey;
 width: 200px;
 height: 250px;
 padding: 4%;
-margin-left: 4%;
-margin-top: -6%
+margin-left: 22%;
 border-radius: 10px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+
+`
+const MainTitle = styled.h1 `
+margin-bottom: 4%;
+
+
 `
 // const Card = styled.div`
 // width: 300px;
@@ -39,16 +50,11 @@ const ItemCard = (props) => {
     return (
     <MainDiv>
                    
-            <h1>Add Item To Auction</h1>
+            <MainTitle>Add Item To Auction</MainTitle>
             <ItemForm/>
-            <ItemBox/>>   
+
+            <ItemBox/>   
                 
-            
-           
-            
-            
-            
-           
             <AddItem/>
             
            
