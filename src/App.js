@@ -1,31 +1,22 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-import './App.css';
-import ItemCard from './components/ItemCard';
+import ItemCard from "./components/ItemCard";
+import SignUp from "./components/Signup";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
-
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import { connect } from 'react-redux';
-import './App.css';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
-
+import "./App.css";
 
 function App() {
   return (
     <Router>
-    <div className="App">
-
-      <ItemCard/>
-      
-     
- 
-
-
-      <Route exact path="/" component={Login} />
-      <Route exact path='/signup' component={SignUp} />
-
-    </div>
+      <div className="App">
+        <Route exact path="/" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <PrivateRoute exact path="/item-card" component={ItemCard} />
+      </div>
     </Router>
   );
 }
