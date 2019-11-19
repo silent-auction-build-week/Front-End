@@ -1,7 +1,7 @@
-import React from 'react';
-import ItemForm from './ItemForm';
-import AddItem from './AddItem';
-import styled from 'styled-components';
+import React from "react";
+import ItemForm from "./ItemForm";
+import AddItem from "./AddItem";
+import styled from "styled-components";
 
 
 const MainDiv = styled.div`
@@ -46,8 +46,8 @@ margin-bottom: 6%;
 // background-color: #9cd2ff
 // `
 
-const ItemCard = (props) => {
-    return (
+const ItemCard = props => {
+  return (
     <MainDiv>
                    
             <MainTitle>Add Item To Auction</MainTitle>
@@ -61,13 +61,9 @@ const ItemCard = (props) => {
             
             
 
-        
+      <AddItem />
     </MainDiv>
+  );
+};
 
-    )
-}
-
-
-
-
-export default ItemCard
+export default ItemCard;
