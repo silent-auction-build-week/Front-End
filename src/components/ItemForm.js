@@ -1,5 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+
+ const ItemName = styled.label`
+    
+    font-size: 1.2rem;   
+ `
+ const NameInput = styled.input`
+    width: 70%;
+    height: 5%;
+    margin-bottom: 10%;
+ `
+
+ 
+    
+    
+
+
 const ItemForm = () => {
 const [name, setName] = useState("");
 
@@ -13,13 +30,13 @@ const handleSubmit = event => {
 };
 
 return (
-  <div>
-    {console.log(name)}
-    <form onSubmit={event => handleSubmit(event)}>
-      <label>
+  <>
+    {/* {console.log(name)} */}
+    <form className='form-text' onSubmit={event => handleSubmit(event)}>
+      <ItemName>
         Item Name:
-        <input type="text" onChange={event => handleChange(event)} />
-      </label>
+        <NameInput type="text" onChange={event => handleChange(event)} />
+      </ItemName>
       <br/>
       <label>
         Description:
@@ -33,7 +50,7 @@ return (
       <br/>
       <button>Submit!</button>
     </form>
-  </div>
+  </>
 );
 }
 
