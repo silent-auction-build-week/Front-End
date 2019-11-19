@@ -17,7 +17,7 @@ const Login = props => {
         console.log(user)
         axios
           .post(
-            `https://silent-auction-be.herokuapp.com/auth/login/bidder`,
+            `https://silent-auction-be.herokuapp.com/auth/login/bidders`,
             user
           )
           .then(response => console.log("login response", response))

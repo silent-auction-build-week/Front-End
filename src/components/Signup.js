@@ -9,26 +9,34 @@ const SignUp = props => {
     streetAddress: "",
     city: "",
     state: "",
-    zipCode: 0,
+    zipCode: "",
     username: "",
-    password: "",
-    organization: "",
-    userType: ""
+    password: ""
   });
+  const [userType, setUserType] = useState();
+  const [token, setToken] = useState()
 
   const handleChange = e => {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    if(e.target.name === "userType"){
+      setUserType(e.target.value);
+    }else{
+      setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    //console.log(newUser)
+    // console.log(newUser)
+    // console.log(userType)
     axios
       .post(
-        `https://silent-auction-be.herokuapp.com/auth/register/${newUser.userType}`,
+        `https://silent-auction-be.herokuapp.com/auth/register/${userType}`,
         newUser
       )
-      .then(response => console.log("registration response", response))
+      .then(response => {
+        console.log("registration response", response)
+        setToken(response.data.token)
+      })
       .catch(error => console.log(error));
   };
 
@@ -83,7 +91,7 @@ const SignUp = props => {
             placeholder="Zip"
             onChange={handleChange}
             value={newUser.zipCode}
-            type="number"
+            type="text"
           />
           <input
             name="username"
@@ -99,18 +107,11 @@ const SignUp = props => {
             value={newUser.password}
             type="password"
           />
-          <input
-            name="organization"
-            placeholder="Organization"
-            onChange={handleChange}
-            value={newUser.organization}
-            type="text"
-          />
           <select
             name="userType"
             placeholder="User Type"
             onChange={handleChange}
-            value={newUser.userType}
+            value={userType}
             type="text"
           >
             <option value="">Please make a selection</option>
