@@ -31,7 +31,7 @@ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 
 `
 const MainTitle = styled.h1 `
-margin-bottom: 4%;
+margin-bottom: 6%;
 
 
 `
