@@ -95,8 +95,8 @@ return (
          <Label>       
         <Field className='start-bid'
         name='bid' 
-        type="text" 
-        placeholder='  Starting Bid'
+        type="number" 
+        placeholder=' $ Starting Bid'
         ></Field> 
         <br/>
         
