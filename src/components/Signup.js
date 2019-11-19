@@ -1,5 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
+import styled from 'styled-components';
+
+const SignupForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  margin-top: 60px;
+`;
+
+const SignupInput = styled.input`
+  margin: 2%;
+`;
+
+const SignupButtons = styled.button`
+  margin: 2%;
+`;
 
 const SignUp = props => {
   const [newUser, setNewUser] = useState({
@@ -35,7 +51,7 @@ const SignUp = props => {
       )
       .then(response => {
         console.log("registration response", response)
-        setToken(response.data.token)
+        localStorage.setItem('token', response.data.token)
       })
       .catch(error => console.log(error));
   };
@@ -43,64 +59,64 @@ const SignUp = props => {
   return (
     <>
       <div className="signup">
-        <form onSubmit={handleSubmit}>
-          <input
+        <SignupForm onSubmit={handleSubmit}>
+          <SignupInput
             name="firstName"
             placeholder="First Name"
             onChange={handleChange}
             value={newUser.firstName}
             type="text"
           />
-          <input
+          <SignupInput
             name="lastName"
             placeholder="Last Name"
             onChange={handleChange}
             value={newUser.lastName}
             type="text"
           />
-          <input
+          <SignupInput
             name="email"
             placeholder="Email"
             onChange={handleChange}
             value={newUser.email}
             type="email"
           />
-          <input
+          <SignupInput
             name="streetAddress"
             placeholder="Address"
             onChange={handleChange}
             value={newUser.streetAddress}
             type="text"
           />
-          <input
+          <SignupInput
             name="city"
             placeholder="City"
             onChange={handleChange}
             value={newUser.city}
             type="text"
           />
-          <input
+          <SignupInput
             name="state"
             placeholder="State"
             onChange={handleChange}
             value={newUser.state}
             type="text"
           />
-          <input
+          <SignupInput
             name="zipCode"
             placeholder="Zip"
             onChange={handleChange}
             value={newUser.zipCode}
             type="text"
           />
-          <input
+          <SignupInput
             name="username"
             placeholder="Username"
             onChange={handleChange}
             value={newUser.username}
             type="text"
           />
-          <input
+          <SignupInput
             name="password"
             placeholder="Password"
             onChange={handleChange}
@@ -118,8 +134,8 @@ const SignUp = props => {
             <option value="bidders">Bidder</option>
             <option value="sellers">Seller</option>
           </select>
-          <button>Submit</button>
-        </form>
+          <SignupButtons>Submit</SignupButtons>
+        </SignupForm>
       </div>
     </>
   );
