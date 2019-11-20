@@ -3,27 +3,46 @@ import styled from 'styled-components';
 
 
 
-const ItemBox = styled.div `
-    
-       
+const AuctionBox = styled.div `           
     border: 1px solid gray
     margin: 2%;
-    width: 42%;
+    width: 100%;
+    // margin-left: 10%;
+  
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    font-size: .75rem;
+    p {
+        font-size: 1rem;
+        padding: 2%;
+    }
 `
+const AuctionBody = styled.div `
+    max-width: 75%;
+    display: flex;
+
+`
+
+
 
 const AuctionCard = (props) => {
     console.log('my response', props.item_name)
     return (
-    
-        <ItemBox>
-            {/* add props for auction */}
-            <img src={props.image} alt='items' />            
-            <h3>{props.item}</h3>
-            <p>{props.description}</p>
-            <span>${props.price}</span>
-            <button>Bid on Item</button> 
+      
+        <AuctionBody>
+            <AuctionBox>
+                {/* add props for auction */}
+                <img src={props.image} alt='items' />            
+                <h4>{props.item}</h4>
+                <div>
+                <p>{props.description}</p>
+                </div>
+                <span>${props.price}</span>
+                <button>Bid on Item</button> 
             
-        </ItemBox>
+            </AuctionBox>
+        </AuctionBody>
+       
     
     )
 

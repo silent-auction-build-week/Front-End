@@ -74,7 +74,7 @@ return (
        <span>Start Date:</span>       
         <Field className='start-date' 
         name='start'
-        type="text" 
+        type="date" 
         ></Field >        
         <br/>
         {touched.start && errors.start && (
@@ -82,16 +82,17 @@ return (
         )}
         </Label>
         <Label>
-        <span>End Date:</span>       
+        {/* <span>End Date:</span>       
         <Field className='end-date'
         name='end' 
         type="text" 
-        ></Field> 
+        ></Field>  */}
         {touched.end && errors.end && (
         <p className='errors' >{errors.end}</p>
         )}        
          </Label>
          <br/>
+         {/* start bid input */}
          <Label>       
         <Field className='start-bid'
         name='bid' 
@@ -120,12 +121,6 @@ return (
         <p className='errors' >{errors.description}</p>
         )}
         
-        <Label>
-        <Button type='submit' >Add Item</Button>
-        </Label> 
-
-
-
 
     </Form>
 
