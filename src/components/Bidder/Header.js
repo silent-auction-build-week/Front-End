@@ -13,6 +13,7 @@ a {
 
 
 
+
 const Header = () => {
 
     return (
@@ -26,6 +27,7 @@ const Header = () => {
             <NavLink to='auctions'>Payment</NavLink>
             </nav>
         </Hdr>
+
             <Route exact path=''/>
 
 

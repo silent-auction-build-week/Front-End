@@ -76,22 +76,23 @@ const Button = styled.button `
 
 const ItemForm = ({ errors, touched, status }) => {
 const [nameForm, setName] = useState([]);
-// form Input event handler
+
 useEffect(() => {
     status && setName(nameForm => [...nameForm, status])
 }, [status]);
-// Button event handler
+
 const [selectedFile, setSelectedFile] = useState([]);
+// handles preview of image in div
 const fileSelectedHandler = event => {
     setSelectedFile(URL.createObjectURL(event.target.files[0]));
 }
 
-// 
+// start of image upload
 
     const fileUploadHandler = () => {
             //form data being sent  
         const frmdata = new FormData();
-            frmdata.append( selectedFile, selectedFile.name);
+            frmdata.append('ItemBox', selectedFile, selectedFile.name);
         axios
         .post('silent-auction-be.herokuapp.com/:sellerId/items/', frmdata, {
             onUploadProgress: progressEvent => {
@@ -121,7 +122,7 @@ return (
         <p className='errors' >{errors.item}</p>
         )}    
         </Label>
-        <Label>
+        {/* <Label>
        <span>Start Date:</span>       
         <Field className='start-date' 
         name='start'
@@ -131,13 +132,13 @@ return (
         {touched.start && errors.start && (
         <p className='errors' >{errors.start}</p>
         )}
-        </Label>
+        </Label> */}
         <Label>
-        {/* <span>End Date:</span>       
+        <span>End Date:</span>       
         <Field className='end-date'
         name='end' 
-        type="text" 
-        ></Field>  */}
+        type="date" 
+        ></Field> 
         {touched.end && errors.end && (
         <p className='errors' >{errors.end}</p>
         )}        
@@ -158,8 +159,7 @@ return (
         </Label>
        
         <br/>
-       
-        
+               
         <span className='desc-title' >Description:</span>       
         <Field as='textarea'
         className='descrip'
@@ -172,7 +172,7 @@ return (
         <p className='errors' >{errors.description}</p>
         )}
         
-{/*  paste add item so uploading all */}
+{/*  paste add item so uploading all  */}
                     <UploadButton 
                     onClick={fileUploadHandler}            
                     >Add Item</UploadButton>
@@ -193,14 +193,13 @@ return (
   
     );
 };
-
+// start of validation HOC
 
 const FormikItemForm = withFormik({
-    mapPropsToValues({ item, start, end, bid, description }) {
+    mapPropsToValues({ item, end, bid, description }) {
         return {
             
-            item: item || '',
-            start: start || '',
+            item: item || '',          
             end: end || '',
             bid: bid || '',
             description: description || ''
@@ -209,8 +208,7 @@ const FormikItemForm = withFormik({
     },
     validationSchema: Yup.object().shape({
 
-        item: Yup.string().required('item name needed').min(3, 'Too short'),
-        start: Yup.string().required('start date needed'),
+        item: Yup.string().required('item name needed').min(3, 'Too short'),       
         end: Yup.string().required('end date needed'),
         bid: Yup.string().required('must put starting bid'),
         description: Yup.string().required('Item Description needed')        

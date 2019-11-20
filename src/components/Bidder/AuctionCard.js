@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import {connect} from "react-redux";
+import {axiosWithAuth} from '../../actions';
 
-
-
-const AuctionBox = styled.div `           
+const AuctionBox = styled.div`           
     border: 1px solid gray
     margin: 2%;
     width: 100%;
@@ -16,40 +16,74 @@ const AuctionBox = styled.div `
         font-size: 1rem;
         padding: 2%;
     }
-`
-const AuctionBody = styled.div `
-    max-width: 75%;
-    display: flex;
+`;
+const AuctionBody = styled.div`
+  max-width: 75%;
+  display: flex;
+`;
 
-`
+const AuctionCard = props => {
+  //console.log('my response', props.item_name)
+  const [bidding, setBidding] = useState(false);
+  const [itemToBidOn, setItemToBidOn] = useState({
+      item_name: props.item.item_name,
+      description: props.item.description,
+      img_url: props.item.img_url,
+      price: props.item.price
+  });
 
+  const itemBidding = item => {
+    setBidding(true);
+    setItemToBidOn(item);
+  };
 
-
-const AuctionCard = (props) => {
-    console.log('my response', props.item_name)
-    return (
-      
-        <AuctionBody>
-            <AuctionBox>
-                {/* add props for auction */}
-                <img src={props.image} alt='items' />            
-                <h4>{props.item}</h4>
-                <div>
-                <p>{props.description}</p>
-                </div>
-                <span>${props.price}</span>
-                <button>Bid on Item</button> 
-            
-            </AuctionBox>
-        </AuctionBody>
-       
-    
-    )
-
+const saveBid = e => {
+    //authAxios PUT request
+    const authAxios = axiosWithAuth();
+    e.preventDefault();
+    authAxios.put(`https://silent-auction-be.herokuapp.com/api/items/${props.item.id}`, itemToBidOn)
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => console.log(error))
 }
 
+  return (
+    <AuctionBody>
+      <AuctionBox>
+        {/* add props for auction */}
+        <img src={props.item.img_url} alt="items" />
+        <h4>{props.item.item_name}</h4>
+        <div>
+          <p>{props.item.description}</p>
+        </div>
+        <span>${props.item.price}</span>
+        <button onClick={() => itemBidding(props.item)}>Bid on Item</button>
+        {bidding && (
+          <form onSubmit={saveBid}>
+            <legend>place bid</legend>
+            <label>
+              bid amount:
+              <input
+                onChange={e =>
+                  setItemToBidOn({ ...itemToBidOn, price: e.target.value })
+                }
+                value={itemToBidOn.price}
+              />
+            </label>
+            <div className="button-row">
+              <button type="submit">place bid</button>
+              <button onClick={() => setBidding(false)}>cancel</button>
+            </div>
+          </form>
+        )}
+      </AuctionBox>
+    </AuctionBody>
+  );
+};
 
+const mapDispatchToProps = {
+    axiosWithAuth
+}
 
-
-
-export default AuctionCard;
+export default connect(state => state, mapDispatchToProps)(AuctionCard);

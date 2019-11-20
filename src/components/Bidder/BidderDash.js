@@ -10,11 +10,13 @@ height: 150px;
 border: 1px solid gray;
 `
 const Sidebar = styled.div `
-    display: flex:
-    flex-direction: row-reverse;
+    display: flex;
+    justify-content: flex-end;
+    
     width: 30%;
     border: 1px solid gray;
 `
+
 
 const BidderDash = () => {
     
@@ -37,7 +39,7 @@ const BidderDash = () => {
     }, [])
 
 // display active auctions
-    const auctions = activeAuctions
+
 
 // retrieve items bid on
 
@@ -48,16 +50,15 @@ const BidderDash = () => {
         <div>
 
             <ProfileCard/>
+
             <Sidebar>
                 <p>Hello</p>
-            </Sidebar>
-            {auctions.map((live, index) =>                
+            </Sidebar>                    
+            {activeAuctions.map((live, index) =>                
                 <AuctionCard    
                     key={index} 
-                    item={live.item_name}
-                    image={live.img_url}
-                    description={live.description}
-                    price={live.price}   
+                    item={live.id}
+                    image={live}
                 />)} 
             <Footer>
                 
