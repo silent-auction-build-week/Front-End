@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 
 import ItemForm from "./ItemForm";
-import AddItem from "./AddItem";
+
 import styled from "styled-components";
 import axios from 'axios';
 
@@ -44,7 +44,7 @@ const ItemCard = props => {
 
             <ItemForm/>
                  
-            <AddItem/>
+          
                 
         </MainDiv>
 
