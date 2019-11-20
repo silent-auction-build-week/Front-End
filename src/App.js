@@ -15,10 +15,10 @@ function App() {
   return (
      <Router>
       <div className="App">
-        <BidderDash/>
+        {/* <BidderDash/> */}
         {/* <ItemCard/> */}
         <PrivateRoute exact path="/bidder-dash" component={BidderDash}/>
-        {/* <Route exact path="/" component={Login} /> */}
+        <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <PrivateRoute exact path="/item-card" component={ItemCard} />
       </div>

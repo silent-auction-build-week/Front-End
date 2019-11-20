@@ -40,7 +40,6 @@ const BidderDash = () => {
 
 // display active auctions
 
-
 // retrieve items bid on
 
 // display items bid on
@@ -53,12 +52,11 @@ const BidderDash = () => {
 
             <Sidebar>
                 <p>Hello</p>
-            </Sidebar>                    
-            {activeAuctions.map((live, index) =>                
+            </Sidebar>
+            {activeAuctions.map(live =>                
                 <AuctionCard    
-                    key={index} 
-                    item={live.id}
-                    image={live}
+                    key={live.id} 
+                    item={live}
                 />)} 
             <Footer>
                 

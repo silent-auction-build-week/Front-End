@@ -45,6 +45,11 @@ const Login = props => {
           .then(response => {
             console.log("registration response", response)
             localStorage.setItem('token', response.data.token)
+            if(userType === "bidders"){
+              props.history.push('/bidder-dash')
+            } else {
+              props.history.push('/seller-dash')
+            }
           })
           .catch(error => console.log(error));
       };
