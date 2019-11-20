@@ -1,6 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AuctionCard from './AuctionCard'
+import styled from 'styled-components';
+import AuctionCard from './AuctionCard';
+import ProfileCard from './Header';
+
+const Footer = styled.footer `
+width: 100%;
+height: 150px;
+border: 1px solid gray;
+`
+const Sidebar = styled.div `
+    display: flex:
+    flex-direction: row-reverse;
+    width: 30%;
+    border: 1px solid gray;
+`
 
 const BidderDash = () => {
     
@@ -11,11 +25,11 @@ const BidderDash = () => {
 //retrieve active auctions
     useEffect(() => {
         axios
-        .get( 'https://silent-auction-be.herokuapp.com/api/auctions')
+        .get( 'https://silent-auction-be.herokuapp.com/api/items')
         .then(response => {
-            console.log('reponse from server', response.data.auctions)
+            console.log('reponse from server', response.data.items)
             
-            setActiveAuctions(response.data.auctions);
+            setActiveAuctions(response.data.items);
         })
         .catch(error => {
             console.log('Your data was lost, try again', error)
@@ -33,17 +47,21 @@ const BidderDash = () => {
     return (
         <div>
 
-            {auctions.map((live, index) => 
-   
-                <AuctionCard 
-    
+            <ProfileCard/>
+            <Sidebar>
+                <p>Hello</p>
+            </Sidebar>
+            {auctions.map((live, index) =>                
+                <AuctionCard    
                     key={index} 
                     item={live.item_name}
                     image={live.img_url}
                     description={live.description}
-                    price={live.price}
-    
-                />)}                    
+                    price={live.price}   
+                />)} 
+            <Footer>
+                
+            </Footer>                   
         </div>
     )
 }
