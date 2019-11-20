@@ -14,6 +14,14 @@ export const dataLoadFailure = error => ({
   payload: error
 });
 
+export const axiosWithAuth = () => {
+    return axios.create({
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    });
+  };
+
 export function fetchdata() {
   return function(dispatch) {
     dispatch(dataLoading());
