@@ -9,15 +9,17 @@ import PrivateRoute from "./components/PrivateRoute";
 
 import "./App.css";
 
+
 function App() {
   return (
-    <Router>
+     <Router>
       <div className="App">
+        
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <PrivateRoute exact path="/item-card" component={ItemCard} />
       </div>
-    </Router>
+    </Router> 
   );
 }
 

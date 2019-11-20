@@ -13,8 +13,9 @@ const BidderDash = () => {
         axios
         .get( 'https://silent-auction-be.herokuapp.com/api/auctions')
         .then(response => {
-            console.log(response.data)
-            setActiveAuctions(response.data);
+            console.log('reponse from server', response.data.auctions)
+            
+            setActiveAuctions(response.data.auctions);
         })
         .catch(error => {
             console.log('Your data was lost, try again', error)
@@ -22,7 +23,7 @@ const BidderDash = () => {
     }, [])
 
 // display active auctions
-    const auctions = activeAuctions.map(live => <AuctionCard key={live.id}/>)
+    const auctions = activeAuctions
 
 // retrieve items bid on
 
@@ -31,15 +32,18 @@ const BidderDash = () => {
 
     return (
         <div>
-            {auctions}
-         
-         
-         
-                
-                          
-         
-      
 
+            {auctions.map((live, index) => 
+   
+                <AuctionCard 
+    
+                    key={index} 
+                    item={live.item_name}
+                    image={live.img_url}
+                    description={live.description}
+                    price={live.price}
+    
+                />)}                    
         </div>
     )
 }

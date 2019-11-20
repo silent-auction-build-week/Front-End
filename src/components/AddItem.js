@@ -30,16 +30,16 @@ const AddItem = (props) => {
 
     const fileUploadHandler = () => {
       //form data being sent  
-        // const frmdata = new FormData();
-        // frmdata.append('item-image', selectedFile, selectedFile.name);
-        // axios
-        // .post('https://reqres.in/api/users/', frmdata, {
-        //     onUploadProgress: progressEvent => {
-        //         console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')}
-        // })
-        // .then(res => {
-        //     console.log(res);
-        // });
+        const frmdata = new FormData();
+        frmdata.append('item-image', selectedFile, selectedFile.name);
+        axios
+        .post('silent-auction-be.herokuapp.com/:sellerId/items/', frmdata, {
+            onUploadProgress: progressEvent => {
+                console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')}
+        })
+        .then(res => {
+            console.log(res);
+        });
         const showData = (props) => {
             console.log(props);
         }

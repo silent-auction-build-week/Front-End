@@ -123,12 +123,7 @@ return (
         <Label>
         <Button type='submit' >Add Item</Button>
         </Label> 
-        {nameForm.map(item => (
-        <ul key={item.id}>
-          <li>Species: {item.species}</li>
-          <li>Size: {item.size}</li>
-        </ul>
-      ))}
+
 
 
 
