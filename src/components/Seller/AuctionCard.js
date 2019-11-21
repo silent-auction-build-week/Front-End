@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Countdown from "react-countdown-now";
 
 const AuctionBox = styled.div`
     
@@ -85,7 +86,7 @@ const AuctionCard = props => {
         <h1>{props.item.item_name}</h1>
         <div>
         <h1> Auction Created By {props.item.firstName} {props.item.lastName} </h1>
-        
+        <h1> Countdown <Countdown date={props.item.auction_end} /> </h1>
         </div>
         
         <Prices>${props.item.price}</Prices>
