@@ -6,11 +6,12 @@ const ImgItem = styled.img `
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    border: 1px solid #9370DB;
+   
 `
 
 const AuctionBox = styled.div`           
-    border: 1px solid #FFCC66;
+    border: 2px solid #9370DB;
+    margin-top: 3%;
     margin: 2%;
     width: 100%;
     height: 200px;
@@ -23,11 +24,20 @@ const AuctionBox = styled.div`
         font-size: 1rem;
         padding: 2%;
         width: 500px;
+        margin-left: 33%
     }
+    h1 {
+        margin-left: 33%;
+    }
+    
+    
 `
 const AuctionBody = styled.div`
   max-width: 100%;
-  display: flex;
+
+`
+const Button = styled.button `
+
 `
 
 const AuctionCard = props => {
@@ -63,12 +73,13 @@ const saveBid = e => {
         <div>
         <ImgItem src={props.item.img_url} alt="items" />
         </div>
-        <h4>{props.item.item_name}</h4>
+        <h1>{props.item.item_name}</h1>
         <div>
           <p>{props.item.description}</p>
         </div>
+        
         <span>${props.item.price}</span>
-        <button onClick={() => itemBidding(props.item)}>Bid on Item</button>
+        <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
         {bidding && (
           <form onSubmit={saveBid}>
             <legend>place bid</legend>

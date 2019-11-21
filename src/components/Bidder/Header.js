@@ -3,16 +3,24 @@ import { NavLink, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Hdr = styled.header `
-    color: white
+    margin-bottom: 4%;
+    width: 100%;
+    color:  #9370DB
     text-align: center; 
     font-family: 'Baloo Bhai';
     height: 100px;
-    background-color: #9370DB;
+    background-color: #EEEEEE;;
     border-radius: 3px;
     a {
         text-decoration: none;
         padding: 0 8%;
-        color: white; 
+        color: #9370DB;
+        font-size: 1.3rem;
+        text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
          
     }
     h2 {
@@ -33,7 +41,7 @@ const Header = () => {
     <div>
         <Hdr>
             <h2>Bidder Dashboard</h2>
-            The 
+            
             <nav>
             <NavLink to='home'>Home</NavLink>
             <NavLink to='account'>Account</NavLink>

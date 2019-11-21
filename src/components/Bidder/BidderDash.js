@@ -5,7 +5,7 @@ import AuctionCard from './AuctionCard';
 import ProfileCard from './Header';
 
 const BidderWrapper = styled.div `
-    background-color: #EEEEEE;
+    
     font-family: 'Baloo Bhai';
     border-radius: 3px;
   
