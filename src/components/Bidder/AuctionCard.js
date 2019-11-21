@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {connect} from "react-redux";
-import {axiosWithAuth} from '../../actions';
 
 const AuctionBox = styled.div`           
     border: 1px solid gray
@@ -23,30 +21,20 @@ const AuctionBody = styled.div`
 `;
 
 const AuctionCard = props => {
-  //console.log('my response', props.item_name)
+  //console.log('my response', props.auctions)
   const [bidding, setBidding] = useState(false);
   const [itemToBidOn, setItemToBidOn] = useState({
-      item_name: props.item.item_name,
-      description: props.item.description,
-      img_url: props.item.img_url,
-      price: props.item.price
+    item_name: props.item.item_name,
+    description: props.item.description,
+    img_url: props.item.img_url,
+    price: props.item.price,
+    id: props.item.id
   });
 
   const itemBidding = item => {
     setBidding(true);
     setItemToBidOn(item);
   };
-
-const saveBid = e => {
-    //authAxios PUT request
-    const authAxios = axiosWithAuth();
-    e.preventDefault();
-    authAxios.put(`https://silent-auction-be.herokuapp.com/api/items/${props.item.id}`, itemToBidOn)
-    .then(response => {
-        console.log(response);
-    })
-    .catch(error => console.log(error))
-}
 
   return (
     <AuctionBody>
@@ -60,7 +48,7 @@ const saveBid = e => {
         <span>${props.item.price}</span>
         <button onClick={() => itemBidding(props.item)}>Bid on Item</button>
         {bidding && (
-          <form onSubmit={saveBid}>
+          <form onSubmit={e => props.saveBid(e, itemToBidOn)}>
             <legend>place bid</legend>
             <label>
               bid amount:
@@ -82,8 +70,4 @@ const saveBid = e => {
   );
 };
 
-const mapDispatchToProps = {
-    axiosWithAuth
-}
-
-export default connect(state => state, mapDispatchToProps)(AuctionCard);
+export default AuctionCard;
