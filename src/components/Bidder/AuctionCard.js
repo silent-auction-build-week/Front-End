@@ -3,46 +3,65 @@ import styled from "styled-components";
 import {connect} from "react-redux";
 import {axiosWithAuth} from '../../actions';
 const ImgItem = styled.img `
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-   
+    display: block;
+    width: 100%;
+    height: 275px; 
+    border-radius: 10px; 
 `
 
-const AuctionBox = styled.div`           
+const AuctionBox = styled.div`
+    
+    background-color:  #EEEEEE;         
     border: 2px solid #9370DB;
-    margin-top: 3%;
+    margin: 5% 0;
     margin: 2%;
-    width: 100%;
-    height: 200px;
+    width: 400px;
+    height: 100%;    
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-    font-size: .75rem;
-  
+    font-size: .75rem;  
     p {
-        flex-wrap: no-wrap
-        font-size: 1rem;
-        padding: 2%;
-        width: 500px;
-        margin-left: 37%
        
-        
+        font-size: 1rem;
+        margin: 2%      
     }
     h1 {
-        margin-left: 33%;
+       margin: 2%;
         color: #9370DB;
     }
     
     
 `
 const AuctionBody = styled.div`
-  max-width: 100%;
+  // max-width: 100%;
+  height: 100%;
+  
+  
+  
 
 `
+const Prices = styled.span `
+    margin: 0 20%;
+    color: #9370DB;
+    font-size: 1.2rem;
+    align-items: center;
+`
+
 const Button = styled.button `
-
+   width: 30%;
+   background-color: #9370DB;
+   border-radius: 3px;
+   height: 30px;
+   margin-bottom: 3%;
 `
 
+const Form = styled.form `
+    font-size: 1.1rem;
+    color: #9370DB;
+    margin-bottom: 3%;
+
+`
+// start of Component
 const AuctionCard = props => {
   //console.log('my response', props.item_name)
   const [bidding, setBidding] = useState(false);
@@ -81,10 +100,10 @@ const saveBid = e => {
           <p>{props.item.description}</p>
         </div>
         
-        <span>${props.item.price}</span>
+        <Prices>${props.item.price}</Prices>
         <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
         {bidding && (
-          <form onSubmit={saveBid}>
+          <Form  onSubmit={saveBid}>
             <legend>place bid</legend>
             <label>
               bid amount:
@@ -99,7 +118,7 @@ const saveBid = e => {
               <button type="submit">place bid</button>
               <button onClick={() => setBidding(false)}>cancel</button>
             </div>
-          </form>
+          </Form >
         )}
       </AuctionBox>
     </AuctionBody>

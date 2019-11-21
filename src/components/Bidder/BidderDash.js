@@ -2,10 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
-import ProfileCard from './Header';
+import Hdr from './Header';
+
+const MainDiv = styled.div `
+    width: 100%;
+`
+
+const HeaderWrapper = styled.div `
+    width: 100%
+   
+
+`
 
 const BidderWrapper = styled.div `
+    align-items: center;
     
+    width: 800px;
     font-family: 'Baloo Bhai';
     border-radius: 3px;
   
@@ -13,7 +25,7 @@ const BidderWrapper = styled.div `
 
 const Footer = styled.footer `
 width: 100%;
-height: 150px;
+height: 100%;
 border: 1px solid #FFCC66;;
 `
 
@@ -47,20 +59,21 @@ const BidderDash = () => {
 
 
     return (
-        <BidderWrapper>
-
-            <ProfileCard/>
-
-
+     <MainDiv>
+       <HeaderWrapper>         
+         <Hdr/>
+       </HeaderWrapper>
+         <BidderWrapper>
             {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
                     item={live}
-                />)} 
+                />)}; 
             <Footer>
                 
             </Footer>                   
-        </BidderWrapper>
+          </BidderWrapper>
+      </MainDiv>
     )
 }
 

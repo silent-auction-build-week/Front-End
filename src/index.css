@@ -15,8 +15,9 @@ body {
 }
 #root {
   width: 1000px;
+  height: 100%;
   padding: 5%;
-  justify-content: center;
+ 
 
 }
 code {
