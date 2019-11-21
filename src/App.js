@@ -24,6 +24,7 @@ function App() {
         {/* <BidderDash/> */}
         {/* <ItemCard/> */}
         <PrivateRoute exact path="/bidder-dash" component={BidderDash}/>
+        <PrivateRoute exact path="/seller-dash" component={SellerDash}/>
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <PrivateRoute exact path="/item-card" component={ItemCard} />

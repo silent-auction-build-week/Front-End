@@ -61,7 +61,7 @@ const Header = () => {
             <ImageWrapper>
                 <Image src="https://via.placeholder.com/150" />
             </ImageWrapper>
-            <h2>Bidder Dashboard</h2>
+            <h2>Dashboard</h2>
             
             <nav>
             <NavLink to='home'>Home</NavLink>
