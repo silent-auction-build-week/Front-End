@@ -91,7 +91,7 @@ const AuctionCard = props => {
         <Prices>${props.item.price}</Prices>
         <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
         {bidding && (
-          <Form  onSubmit={props.saveBid}>
+          <Form  onSubmit={(e) => props.saveBid(e, itemToBidOn)}>
             <legend>place bid</legend>
             <label>
               bid amount:
