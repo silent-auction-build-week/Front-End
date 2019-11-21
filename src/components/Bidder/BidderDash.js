@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import AuctionCard from "./AuctionCard";
-import ProfileCard from "./Header";
-
-const Footer = styled.footer`
-  width: 100%;
-  height: 150px;
-  border: 1px solid gray;
-`;
-const Sidebar = styled.div`
-    display: flex:
-    flex-direction: row-reverse;
-    width: 30%;
-    border: 1px solid gray;
-`;
-=======
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -47,7 +28,6 @@ width: 100%;
 height: 100%;
 border: 1px solid #FFCC66;;
 `
->>>>>>> ca440e7a575eab18d605a4ee95db26518dcc33dc
 
 
 
@@ -80,11 +60,7 @@ const BidderDash = () => {
   // display active auctions
   //const auctions = activeAuctions
 
-<<<<<<< HEAD
-  // retrieve items bid on
-=======
 // display active auctions
->>>>>>> ca440e7a575eab18d605a4ee95db26518dcc33dc
 
   // display items bid on
   const saveBid = (e, item) => {
@@ -116,9 +92,6 @@ const BidderDash = () => {
   );
 };
 
-<<<<<<< HEAD
-export default BidderDash;
-=======
 
     return (
      <MainDiv>
@@ -137,8 +110,6 @@ export default BidderDash;
           </BidderWrapper>
       </MainDiv>
     )
-}
 
 
 export default BidderDash;
->>>>>>> ca440e7a575eab18d605a4ee95db26518dcc33dc
