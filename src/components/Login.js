@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 
+
 const GlobalStyle = createGlobalStyle `
   body {
    
@@ -13,11 +14,15 @@ const GlobalStyle = createGlobalStyle `
     
   }
 `
+const Bodywrapper = styled.div `
+ 
+`
 
 const LoginWrapper = styled.div `
+  
   font-family: 'Baloo Bhai';
   border: 2px solid #9370DB;  
-  margin-left: 17%;
+  margin-left: 37%;
   margin-top: 5%;
   width: 230px;
   height: 20rem;
@@ -28,16 +33,21 @@ const LoginWrapper = styled.div `
   h1 {
     text-align: center;
     margin-bottom: -6%;
+    color: #9370DB
+
    
 
   }
   h2 {
     text-align: center;
+    color: #9370DB
+    font-size: 1.3rem;
+
     
   }
 `
-const Img = styled.img `
-  z-index: 1;
+const Image = styled.img `
+  
   width: 230px;
   height: 30%;
   
@@ -45,7 +55,7 @@ const Img = styled.img `
 `
 
 const LoginForm = styled.form`
-  z-index: 1;
+ 
   display: flex;
   flex-direction: column;
   padding: 2%;
@@ -54,17 +64,26 @@ const LoginForm = styled.form`
 `;
 
 const LoginInput = styled.input`
-  z-index: 3;
+  
   margin: 2%;
-  border: 2px solid #9370DB;
+  border: 2px solid #FFCC66;
   border-radius: 5px;
 `;
 
 const LoginButtons = styled.button`
-  z-index: 3;
-  margin: 2%;
-  border: 2px solid #9370DB;
+  font-family: 'Baloo Bhai';
+  font-size: .90rem;
+  margin-top: 10%;
+  border: 2px solid #FFCC66;
   border-radius: 5px;
+  width: 50%;
+  height: 3vh;
+  align-items: center;
+  margin-left: 3.5rem;
+  color: #9370DB;
+  
+
+
 `;
 
 const Login = props => {
@@ -104,9 +123,10 @@ const Login = props => {
       };
 
     return(
-      
+    
+     
         <LoginWrapper  >
-         <h1>Please</h1>
+         <h1>Bids of Silence</h1>
          <h2>Log-In</h2>
         
         <div className="login">
@@ -141,6 +161,8 @@ const Login = props => {
             </LoginForm>
         </div>
       </LoginWrapper>
+     
+    
         
     )
 }

@@ -24,10 +24,13 @@ const AuctionBox = styled.div`
         font-size: 1rem;
         padding: 2%;
         width: 500px;
-        margin-left: 33%
+        margin-left: 37%
+       
+        
     }
     h1 {
         margin-left: 33%;
+        color: #9370DB;
     }
     
     

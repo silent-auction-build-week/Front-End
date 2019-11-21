@@ -9,6 +9,7 @@ import BidderDash from './components/Bidder/BidderDash';
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 
+
 // start styling app
 
 const AppDiv = styled.div `
