@@ -1,20 +1,35 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import AuctionCard from "./AuctionCard";
-import ProfileCard from "./Header";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import AuctionCard from './AuctionCard';
+import Hdr from './Header';
 
-const Footer = styled.footer`
-  width: 100%;
-  height: 150px;
-  border: 1px solid gray;
-`;
-const Sidebar = styled.div`
-    display: flex:
-    flex-direction: row-reverse;
-    width: 30%;
-    border: 1px solid gray;
-`;
+const MainDiv = styled.div `
+    width: 100%;
+`
+
+const HeaderWrapper = styled.div `
+    width: 100%
+   
+
+`
+
+const BidderWrapper = styled.div `
+    align-items: center;
+    
+    width: 800px;
+    font-family: 'Baloo Bhai';
+    border-radius: 3px;
+  
+`
+
+const Footer = styled.footer `
+width: 100%;
+height: 100%;
+border: 1px solid #FFCC66;;
+`
+
+
 
 const BidderDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
@@ -45,7 +60,7 @@ const BidderDash = () => {
   // display active auctions
   //const auctions = activeAuctions
 
-  // retrieve items bid on
+// display active auctions
 
   // display items bid on
   const saveBid = (e, item) => {

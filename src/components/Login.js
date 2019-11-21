@@ -2,20 +2,88 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+
+
+const GlobalStyle = createGlobalStyle `
+  body {
+   
+  }
+  #root {
+    
+  }
+`
+const Bodywrapper = styled.div `
+ 
+`
+
+const LoginWrapper = styled.div `
+  
+  font-family: 'Baloo Bhai';
+  border: 2px solid #9370DB;  
+  margin-left: 37%;
+  margin-top: 5%;
+  width: 230px;
+  height: 20rem;
+  background-color: #EEEEEE;
+  border-radius: 7px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  font-size: .75rem;
+  h1 {
+    text-align: center;
+    margin-bottom: -6%;
+    color: #9370DB
+
+   
+
+  }
+  h2 {
+    text-align: center;
+    color: #9370DB
+    font-size: 1.3rem;
+
+    
+  }
+`
+const Image = styled.img `
+  
+  width: 230px;
+  height: 30%;
+  
+  
+`
 
 const LoginForm = styled.form`
+ 
   display: flex;
   flex-direction: column;
   padding: 2%;
-  margin-top: 60px;
+  margin-top: 10%;
+
 `;
 
 const LoginInput = styled.input`
+  
   margin: 2%;
+  border: 2px solid #FFCC66;
+  border-radius: 5px;
 `;
 
 const LoginButtons = styled.button`
-  margin: 2%;
+  font-family: 'Baloo Bhai';
+  font-size: .90rem;
+  margin-top: 10%;
+  border: 2px solid #FFCC66;
+  border-radius: 5px;
+  width: 50%;
+  height: 3vh;
+  align-items: center;
+  margin-left: 3.5rem;
+  color: #9370DB;
+  
+
+
 `;
 
 const Login = props => {
@@ -55,7 +123,12 @@ const Login = props => {
       };
 
     return(
-        <>
+    
+     
+        <LoginWrapper  >
+         <h1>Bids of Silence</h1>
+         <h2>Log-In</h2>
+        
         <div className="login">
             <LoginForm onSubmit={handleSubmit}>
             <LoginInput
@@ -87,7 +160,10 @@ const Login = props => {
           <LoginButtons><Link to='signup'>Sign Up</Link></LoginButtons>
             </LoginForm>
         </div>
-        </>
+      </LoginWrapper>
+     
+    
+        
     )
 }
 
