@@ -1,18 +1,26 @@
+/* ------------------------------------------------*/
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
 import Hdr from './Header';
+import SearchForm from './SearchForm';
+
+/* ------------------------------------------------*/
 
 const MainDiv = styled.div `
     width: 100%;
 `
+
+/* ------------------------------------------------*/
 
 const HeaderWrapper = styled.div `
     width: 100%
    
 
 `
+/* ------------------------------------------------*/
 
 const BidderWrapper = styled.div `
     align-items: center;
@@ -23,9 +31,11 @@ const BidderWrapper = styled.div `
   
 `
 
+/* ------------------------------------------------*/
+
 const BidderDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
-  // set active auctions to state
+
   const axiosWithAuth = () => {
     return axios.create({
       headers: {
@@ -33,30 +43,24 @@ const BidderDash = () => {
       }
     });
   };
-  //console.log(props.auctions);
 
-  //retrieve active auctions
+/* ------------------------------------------------*/
+
   useEffect(() => {
     axios
-      .get("https://silent-auction-be.herokuapp.com/api/items")
+      .get("https://silent-auction-be.herokuapp.com/api/auctions")
       .then(response => {
-        //console.log('response from server', response.data.items)
         console.log(response.data);
-        setActiveAuctions(response.data.items);
+        setActiveAuctions(response.data.auctions);
       })
       .catch(error => {
         console.log("Your data was lost, try again", error);
       });
   }, []);
 
-  // display active auctions
-  //const auctions = activeAuctions
+/* ------------------------------------------------*/
 
-// display active auctions
-
-  // display items bid on
   const saveBid = (e, item) => {
-    //authAxios PUT request
     const authAxios = axiosWithAuth();
     e.preventDefault();
     authAxios
@@ -64,28 +68,36 @@ const BidderDash = () => {
       .then(response => {
         let newAuctions = activeAuctions.filter(items => items.id !== item.id);
         newAuctions.push(response.data.updatedItem[0]);
-        //console.log(newAuctions);
+
         setActiveAuctions(newAuctions);
       })
       .catch(error => console.log(error));
   };
+
+/* ------------------------------------------------*/
 
   return (
     <MainDiv>
        <HeaderWrapper>         
          <Hdr/>
        </HeaderWrapper>
-         <BidderWrapper>
-            {activeAuctions.map(live =>                
+       <SearchForm auctions={activeAuctions} /> 
+      
+             <BidderWrapper>
+            {/* {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
                     item={live}
                     saveBid={saveBid}
-                />)} 
+                />)}  */}
                    
           </BidderWrapper>
       </MainDiv>
   );
 };
 
+/* ------------------------------------------------*/
+
 export default BidderDash;
+
+/* ------------------------------------------------*/
