@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import {connect} from "react-redux";
 import {axiosWithAuth} from '../../actions';
@@ -11,6 +12,8 @@ const ImgItem = styled.img `
     border-radius: 10px; 
 `
 >>>>>>> ca440e7a575eab18d605a4ee95db26518dcc33dc
+=======
+>>>>>>> 51667e015bfdb464853b8930064b4cee3d015790
 
 const AuctionBox = styled.div`
     
@@ -64,6 +67,12 @@ const Form = styled.form `
     margin-bottom: 3%;
 
 `
+const ImgItem = styled.img `
+    display: block;
+    width: 100%;
+    height: 275px; 
+    border-radius: 10px; 
+`
 // start of Component
 const AuctionCard = props => {
   //console.log('my response', props.auctions)
@@ -97,10 +106,14 @@ const AuctionCard = props => {
         <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
         {bidding && (
 <<<<<<< HEAD
+<<<<<<< HEAD
           <form onSubmit={e => props.saveBid(e, itemToBidOn)}>
 =======
           <Form  onSubmit={saveBid}>
 >>>>>>> ca440e7a575eab18d605a4ee95db26518dcc33dc
+=======
+          <Form  onSubmit={(e) => props.saveBid(e, itemToBidOn)}>
+>>>>>>> 51667e015bfdb464853b8930064b4cee3d015790
             <legend>place bid</legend>
             <label>
               bid amount:

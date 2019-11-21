@@ -23,14 +23,6 @@ const BidderWrapper = styled.div `
   
 `
 
-const Footer = styled.footer `
-width: 100%;
-height: 100%;
-border: 1px solid #FFCC66;;
-`
-
-
-
 const BidderDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
   // set active auctions to state
@@ -79,22 +71,7 @@ const BidderDash = () => {
   };
 
   return (
-    <div>
-      <ProfileCard />
-      <Sidebar>
-        <p>Hello</p>
-      </Sidebar>
-      {activeAuctions.map(live => (
-        <AuctionCard key={live.id} item={live} saveBid={saveBid} />
-      ))}
-      <Footer></Footer>
-    </div>
-  );
-};
-
-
-    return (
-     <MainDiv>
+    <MainDiv>
        <HeaderWrapper>         
          <Hdr/>
        </HeaderWrapper>
@@ -103,13 +80,12 @@ const BidderDash = () => {
                 <AuctionCard    
                     key={live.id} 
                     item={live}
-                />)}; 
-            <Footer>
-                
-            </Footer>                   
+                    saveBid={saveBid}
+                />)} 
+                   
           </BidderWrapper>
       </MainDiv>
-    )
-
+  );
+};
 
 export default BidderDash;
