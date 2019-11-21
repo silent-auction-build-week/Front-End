@@ -33,8 +33,9 @@ const BidderWrapper = styled.div `
 
 /* ------------------------------------------------*/
 
-const BidderDash = () => {
+const SellerDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
+  const userId = localStorage.getItem("userId")
 
   const axiosWithAuth = () => {
     return axios.create({
@@ -98,6 +99,6 @@ const BidderDash = () => {
 
 /* ------------------------------------------------*/
 
-export default BidderDash;
+export default SellerDash;
 
 /* ------------------------------------------------*/
