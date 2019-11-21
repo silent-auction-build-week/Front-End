@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 const Hdr = styled.header`
     z-index: 5;
     margin-bottom: 4%;
@@ -50,33 +49,9 @@ const Image = styled.img`
     margin-top: 
 `
 
-
-
 const Header = () => {
 
     return (
-<<<<<<< HEAD
-    <div>
-
-        <Hdr>
-            <ImageWrapper>
-                <Image src="https://via.placeholder.com/150" />
-            </ImageWrapper>
-            <h2>Dashboard</h2>
-            
-            <nav>
-            <NavLink to='home'>Home</NavLink>
-            <NavLink to='account'>Account</NavLink>
-            <NavLink to='bids'>Bids</NavLink>
-            <NavLink to='auctions'>Payment</NavLink>
-            </nav>
-        </Hdr>
-
-            <Route exact path=''/>
-
-
-    </div>
-=======
         <div>
 
             <Hdr>
@@ -97,13 +72,9 @@ const Header = () => {
 
 
         </div>
->>>>>>> 77497021e793836f2fac96f94680a3072f629b3d
 
 
     )
 }
-
-
-
 
 export default Header;

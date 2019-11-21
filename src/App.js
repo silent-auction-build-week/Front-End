@@ -7,6 +7,7 @@ import SignUp from "./components/Signup";
 import Login from "./components/Login";
 import BidderDash from './components/Bidder/BidderDash';
 import PrivateRoute from "./components/PrivateRoute";
+import SellerDash from "./components/Seller/SellerDash"
 import "./App.css";
 
 
