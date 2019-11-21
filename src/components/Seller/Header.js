@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 const Hdr = styled.header`
     z-index: 5;
     margin-bottom: 4%;
@@ -50,8 +49,6 @@ const Image = styled.img`
     margin-top: 
 `
 
-
-
 const Header = () => {
 
     return (
@@ -79,8 +76,5 @@ const Header = () => {
 
     )
 }
-
-
-
 
 export default Header;
