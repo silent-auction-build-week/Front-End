@@ -96,7 +96,7 @@ const fileSelectedHandler = event => {
         axios
         .post('silent-auction-be.herokuapp.com/:sellerId/items/', frmdata, {
             onUploadProgress: progressEvent => {
-            console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')}
+            console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')}
             })
         .then(res => {
             console.log(res);

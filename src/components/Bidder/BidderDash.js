@@ -4,18 +4,19 @@ import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
 import ProfileCard from './Header';
 
+const BidderWrapper = styled.div `
+    background-color: #EEEEEE;
+    font-family: 'Baloo Bhai';
+    border-radius: 3px;
+  
+`
+
 const Footer = styled.footer `
 width: 100%;
 height: 150px;
-border: 1px solid gray;
+border: 1px solid #FFCC66;;
 `
-const Sidebar = styled.div `
-    display: flex;
-    justify-content: flex-end;
-    
-    width: 30%;
-    border: 1px solid gray;
-`
+
 
 
 const BidderDash = () => {
@@ -46,13 +47,11 @@ const BidderDash = () => {
 
 
     return (
-        <div>
+        <BidderWrapper>
 
             <ProfileCard/>
 
-            <Sidebar>
-                <p>Hello</p>
-            </Sidebar>
+
             {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
@@ -61,7 +60,7 @@ const BidderDash = () => {
             <Footer>
                 
             </Footer>                   
-        </div>
+        </BidderWrapper>
     )
 }
 

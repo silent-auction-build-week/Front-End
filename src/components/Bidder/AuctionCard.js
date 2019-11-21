@@ -2,25 +2,33 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import {axiosWithAuth} from '../../actions';
+const ImgItem = styled.img `
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid #9370DB;
+`
 
 const AuctionBox = styled.div`           
-    border: 1px solid gray
+    border: 1px solid #FFCC66;
     margin: 2%;
     width: 100%;
-    // margin-left: 10%;
-  
+    height: 200px;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
     font-size: .75rem;
+  
     p {
+        flex-wrap: no-wrap
         font-size: 1rem;
         padding: 2%;
+        width: 500px;
     }
-`;
+`
 const AuctionBody = styled.div`
-  max-width: 75%;
+  max-width: 100%;
   display: flex;
-`;
+`
 
 const AuctionCard = props => {
   //console.log('my response', props.item_name)
@@ -52,7 +60,9 @@ const saveBid = e => {
     <AuctionBody>
       <AuctionBox>
         {/* add props for auction */}
-        <img src={props.item.img_url} alt="items" />
+        <div>
+        <ImgItem src={props.item.img_url} alt="items" />
+        </div>
         <h4>{props.item.item_name}</h4>
         <div>
           <p>{props.item.description}</p>

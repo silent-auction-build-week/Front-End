@@ -2,20 +2,69 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+
+const GlobalStyle = createGlobalStyle `
+  body {
+   
+  }
+  #root {
+    
+  }
+`
+
+const LoginWrapper = styled.div `
+  font-family: 'Baloo Bhai';
+  border: 2px solid #9370DB;  
+  margin-left: 17%;
+  margin-top: 5%;
+  width: 230px;
+  height: 20rem;
+  background-color: #EEEEEE;
+  border-radius: 7px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  font-size: .75rem;
+  h1 {
+    text-align: center;
+    margin-bottom: -6%;
+   
+
+  }
+  h2 {
+    text-align: center;
+    
+  }
+`
+const Img = styled.img `
+  z-index: 1;
+  width: 230px;
+  height: 30%;
+  
+  
+`
 
 const LoginForm = styled.form`
+  z-index: 1;
   display: flex;
   flex-direction: column;
   padding: 2%;
-  margin-top: 60px;
+  margin-top: 10%;
+
 `;
 
 const LoginInput = styled.input`
+  z-index: 3;
   margin: 2%;
+  border: 2px solid #9370DB;
+  border-radius: 5px;
 `;
 
 const LoginButtons = styled.button`
+  z-index: 3;
   margin: 2%;
+  border: 2px solid #9370DB;
+  border-radius: 5px;
 `;
 
 const Login = props => {
@@ -55,7 +104,11 @@ const Login = props => {
       };
 
     return(
-        <>
+      
+        <LoginWrapper  >
+         <h1>Please</h1>
+         <h2>Log-In</h2>
+        
         <div className="login">
             <LoginForm onSubmit={handleSubmit}>
             <LoginInput
@@ -87,7 +140,8 @@ const Login = props => {
           <LoginButtons><Link to='signup'>Sign Up</Link></LoginButtons>
             </LoginForm>
         </div>
-        </>
+      </LoginWrapper>
+        
     )
 }
 
