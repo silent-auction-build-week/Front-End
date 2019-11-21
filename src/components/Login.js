@@ -113,6 +113,7 @@ const Login = props => {
           .then(response => {
             console.log("registration response", response)
             localStorage.setItem('token', response.data.token)
+            localStorage.setItem('userId', response.data.user.id)
             if(userType === "bidders"){
               props.history.push('/bidder-dash')
             } else {
