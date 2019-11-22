@@ -53,43 +53,22 @@ const form = styled(Form) `
 
   
 `
-// const Input = styled(Field)`
-// // margin-bottom: 4%;
-// // width: 200px;
-// // height: 35px;
-// // border: 1px solid #ccc;
-// // background-color: #fff;
 
-// `
 
-// const StartInput = styled.input `
-// // margin-bottom: 4%;
-// // width: 100%;
-// // height: 35px;
-// // border: 1px solid #ccc;
-// // background-color: #fff;
-
-// `
-// const DescrInput = styled.input `
-// // margin-bottom: 4%;
-// // width: 100%;
-// // height: 35px;
-// // border: 1px solid #ccc;
-// // background-color: #fff;
-
-// `
-
-// const Button = styled.button `
-//     width 25%;
-//     height: 10%;
-//     margin-left: 37%;
-//     margin-top: 3%;
-//     margin-bottom: 5%;
-//     border-radius: 6px;
-//     font-size: 1.2rem;
-//     border: 1px solid grey;
+const Button = styled.button `
+    width 25%;
+    height: 10%;
+    margin-left: 25%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    border: 1px solid grey;
    
-// `
+`
+const ButtonWrapper = styled.div `
+    margin: 4%;
+`
 
 // Start of Form Component
 
@@ -182,18 +161,19 @@ return (
         )}
         
 {/*  paste add item so uploading all  */}
+                <ButtonWrapper>
                     <UploadButton 
                     onClick={fileUploadHandler}            
                     >Add Item</UploadButton>
 
                     <FileSelect>
+
                     <input className='choose-file'      
                     type='file'          
                     onChange={fileSelectedHandler}
-                    /> 
-                                    
-
+                    />                                    
                     </FileSelect>
+                </ButtonWrapper>
                     <ItemBox>
                     <Img src={selectedFile} alt='item'/>
                     </ItemBox>

@@ -25,19 +25,9 @@ const MainTitle = styled.h1 `
 margin-bottom: 6%;
 text-align: center;
 color: #9370DB;
-
 `
-// const Card = styled.div`
-// width: 300px;
-// height: 450px;
-// border: 1px solid gray;
-// margin: 1%;
-// box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-// border-radius: 10px;
-// text-align: center;
-// background-color: #9cd2ff
-// `
 
+//start component
 
 const ItemCard = props => {
     

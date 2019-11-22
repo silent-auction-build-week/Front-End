@@ -64,8 +64,8 @@ const Header = ({location}) => {
     return (
     <div>
         
-        {/* <Router> */}
-          {/* <Hdr>
+        {/* <Router>
+          <Hdr>
             <ImageWrapper>
                 <Image src={require('./logoforheader.png')} />
             </ImageWrapper>
@@ -81,11 +81,11 @@ const Header = ({location}) => {
           {exclusionArray.indexOf(location.pathname) < 0 && <Header/>}
          <Switch>
             <Route exact path='/' component={Login}/>
-            <Route exact path='/log-in/' component={Login}/>
-            <Route exact path ='/bids/' component={BidderDash}/>
-            <Route exact path ='/auctions/' component={SellerDash}/>
-         </Switch> */}
-        {/* </Router> */}
+            <Route exact path='/log-in' component={Login}/>
+            <Route exact path ='/bids' component={BidderDash}/>
+            <Route exact path ='/auctions' component={SellerDash}/>
+         </Switch>
+        </Router> */}
     </div>
 
 

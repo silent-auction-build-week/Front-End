@@ -61,8 +61,7 @@ const CityInput = styled.input`
   
   margin: 2%;
   border-radius: 1px;
-  height: 20px;
-  
+  height: 20px;  
   font-size: 1.2rem;
   border: 2px solid #9370DB;
 `

@@ -19,6 +19,9 @@ const Bodywrapper = styled.div `
 `
 const TheSelect = styled.select `
   height: 25px;
+  color: #9370DB;
+  font-size: .75rem;
+  border: 2px solid #9370DB; 
 `
 
 const LoginWrapper = styled.div `
