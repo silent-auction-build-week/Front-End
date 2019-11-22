@@ -5,8 +5,8 @@ const AuctionBox = styled.div`
     
     background-color:  #EEEEEE;         
     border: 2px solid #9370DB;
-    margin: 5% 0;
-    margin: 2%;
+    margin: 7% 7% 0 0;
+    justify-content: center;
     width: 400px;
     height: 100%;    
     border-radius: 10px;
@@ -24,14 +24,7 @@ const AuctionBox = styled.div`
     
     
 `
-const AuctionBody = styled.div`
-  width: 100%;
-  height: 100%;
-  
-  
-  
 
-`
 const Prices = styled.span `
     margin: 0 20%;
     color: #9370DB;
@@ -79,7 +72,7 @@ const AuctionCard = props => {
   };
 
   return (
-    <AuctionBody>
+    
       <AuctionBox>
         {/* add props for auction */}
         <div>
@@ -113,7 +106,7 @@ const AuctionCard = props => {
           </Form >
         )}
       </AuctionBox>
-    </AuctionBody>
+    
   );
 };
 

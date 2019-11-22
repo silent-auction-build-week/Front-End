@@ -6,6 +6,9 @@ import Hdr from './Header';
 
 const MainDiv = styled.div `
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Baloo Bhai';
 `
 
 const HeaderWrapper = styled.div `
@@ -73,7 +76,7 @@ const BidderDash = () => {
        <HeaderWrapper>         
          <Hdr/>
        </HeaderWrapper>
-         <BidderWrapper>
+         {/* <BidderWrapper> */}
             {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
@@ -81,7 +84,7 @@ const BidderDash = () => {
                     saveBid={saveBid}
                 />)} 
                    
-          </BidderWrapper>
+          {/* </BidderWrapper> */}
       </MainDiv>
   );
 };
