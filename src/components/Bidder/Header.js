@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route, withRouter, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Login from '../Login';
 import SellerDash from '../Seller/SellerDash';
 import BidderDash from '../Bidder/BidderDash';
+
 
 
 const Hdr = styled.header`
@@ -53,14 +54,18 @@ const Image = styled.img`
     margin-top: 
 `
 
+const exclusionArray = [
+    '../Login.js',
+    '../Signup.js'
+]
 
-
-const Header = () => {
+const Header = ({location}) => {
 
     return (
     <div>
-
-        <Hdr>
+        
+        {/* <Router> */}
+          {/* <Hdr>
             <ImageWrapper>
                 <Image src={require('./logoforheader.png')} />
             </ImageWrapper>
@@ -68,17 +73,19 @@ const Header = () => {
             
             <nav>
             <NavLink exact to='/'>Home</NavLink>
-            <NavLink  exact to='Log-in'>Log-In</NavLink>
-            <NavLink to='Bids'>Bids</NavLink>
-            <NavLink to='Auctions'>Auctions</NavLink>
+            <NavLink  exact to='../Login.js'>Log-In</NavLink>
+            <NavLink to='../Bidder/BidderDash.js/'>Bids</NavLink>
+            <NavLink to='../Seller/SellerDash.js/'>Auctions</NavLink>
             </nav>
-        </Hdr>
-
-            {/* <Route exact path='/' component={Login}/> */}
-            {/* <Route exact path='/log-in/' component={Login}/> */}
-            {/* <Route exact path ='/bids/' component={}/> */}
-            {/* <Route exact path ='/auctions/' component={}/> */}
-
+          </Hdr>
+          {exclusionArray.indexOf(location.pathname) < 0 && <Header/>}
+         <Switch>
+            <Route exact path='/' component={Login}/>
+            <Route exact path='/log-in/' component={Login}/>
+            <Route exact path ='/bids/' component={BidderDash}/>
+            <Route exact path ='/auctions/' component={SellerDash}/>
+         </Switch> */}
+        {/* </Router> */}
     </div>
 
 
@@ -88,4 +95,4 @@ const Header = () => {
 
 
 
-export default Header;
+export default withRouter(Header);

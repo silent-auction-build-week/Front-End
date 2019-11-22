@@ -6,9 +6,28 @@ import styled from 'styled-components';
 const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background-color: #EEEEEE;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  font-family: 'Baloo Bhai';
+  border: 2px solid #9370DB;
+  h1 {
+    text-align: center;
+    margin-bottom: -3%;
+    color: #9370DB;
+  }
+  h2 {
+    text-align: center;
+    color: #9370DB;
+    font-size: 1.3rem;
+    
+  }
   
-  padding: 2%;
-  margin-top: 60px;
+  // padding: 2%;
+  // margin-top: 60px;
   
   
 `
@@ -39,10 +58,11 @@ const StateInput = styled.input`
   border: 2px solid #9370DB;
 `
 const CityInput = styled.input`
+  
   margin: 2%;
   border-radius: 1px;
   height: 20px;
-  width: 40%;
+  
   font-size: 1.2rem;
   border: 2px solid #9370DB;
 `
@@ -61,31 +81,11 @@ const SignupButtons = styled.button`
   margin: 4%;
   width: 30%;
   height: 25px;
-  margin-left: 5.5rem;
   border-radius: 7px;
   font-size: 1rem;
   border: 2px solid #9370DB;
 `
-const SignUpWrapper = styled.div `
-  width: 50%;
-  height: 100%;
-  background-color: #EEEEEE;
-  border-radius: 7px;
-  font-size: 1.2rem;
-  font-family: 'Baloo Bhai';
-  border: 2px solid #9370DB;
-  h1 {
-    text-align: center;
-    margin-bottom: -3%;
-    color: #9370DB;
-  }
-  h2 {
-    text-align: center;
-    color: #9370DB;
-    font-size: 1.3rem;
-    
-  }
-`
+// start of Component
 
 const SignUp = props => {
   const [newUser, setNewUser] = useState({
@@ -126,11 +126,12 @@ const SignUp = props => {
   };
 
   return (
-    <SignUpWrapper>
-      <h1>Bids of Silence</h1>
-      <h2>Sign-Up</h2>
+    
+
       <div className="signup">
         <SignupForm onSubmit={handleSubmit}>
+        <h1>Bids of Silence</h1>
+        <h2>Sign-Up</h2>
           <SignupInput
             name="firstName"
             placeholder="First Name"
@@ -208,7 +209,7 @@ const SignUp = props => {
           <SignupButtons>Submit</SignupButtons>
         </SignupForm>
       </div>
-    </SignUpWrapper>
+    
   );
 };
 
