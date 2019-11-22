@@ -47,8 +47,6 @@ const ItemCard = props => {
             <MainTitle>Add Item To Auction</MainTitle>
 
             <ItemForm/>
-                 
-          
                 
         </MainDiv>
 

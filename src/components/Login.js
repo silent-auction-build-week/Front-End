@@ -17,15 +17,18 @@ const GlobalStyle = createGlobalStyle `
 const Bodywrapper = styled.div `
  
 `
+const TheSelect = styled.select `
+  height: 25px;
+`
 
 const LoginWrapper = styled.div `
-  
+  font-size: 1.2rem;
   font-family: 'Baloo Bhai';
   border: 2px solid #9370DB;  
   margin-left: 37%;
   margin-top: 5%;
-  width: 230px;
-  height: 20rem;
+  width: 17rem;
+  height: 25rem;
   background-color: #EEEEEE;
   border-radius: 7px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
@@ -64,23 +67,25 @@ const LoginForm = styled.form`
 `;
 
 const LoginInput = styled.input`
-  
+  font-size: 1.2rem;
+  height: 25px;
   margin: 2%;
-  border: 2px solid #FFCC66;
+  border: 2px solid #9370DB;
   border-radius: 5px;
 `;
 
 const LoginButtons = styled.button`
   font-family: 'Baloo Bhai';
-  font-size: .90rem;
+  font-size: 1.2rem;
   margin-top: 10%;
-  border: 2px solid #FFCC66;
+  border: 2px solid #9370DB;
   border-radius: 5px;
   width: 50%;
-  height: 3vh;
+  height: 30px;
   align-items: center;
   margin-left: 3.5rem;
   color: #9370DB;
+  text-align: center;
   
 
 
@@ -146,7 +151,7 @@ const Login = props => {
             value={user.password}
             type="password"
           />
-          <select
+          <TheSelect
             name="userType"
             placeholder="User Type"
             onChange={handleChange}
@@ -156,7 +161,7 @@ const Login = props => {
             <option value="">Please make a selection</option>
             <option value="bidders">Bidder</option>
             <option value="sellers">Seller</option>
-          </select>
+          </TheSelect>
           <LoginButtons>Login</LoginButtons>
           <LoginButtons><Link to='signup'>Sign Up</Link></LoginButtons>
             </LoginForm>

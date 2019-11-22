@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
-import Hdr from './Header';
+
 
 const MainDiv = styled.div `
     width: 100%;
@@ -69,9 +69,7 @@ const BidderDash = () => {
 
   return (
     <MainDiv>
-       <HeaderWrapper>         
-         <Hdr/>
-       </HeaderWrapper>
+ 
          
             {activeAuctions.map(live =>                
                 <AuctionCard    

@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/login-bg.jpg'); 
+  background-image: url("./assets/background-869596_1280.png"); 
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
@@ -32,6 +32,17 @@ code {
   height: 100%;
   margin-left: 40%;
   text-align: left;
-  
+   
+}
+.item-name{
+
+}
+.end-date{
+
+}
+.start-bid{
+
+}
+.desc-title{
   
 }

@@ -4,7 +4,7 @@ import Countdown from "react-countdown-now";
 
 
 const AuctionBox = styled.div`
-    
+    font-family: 'Baloo Bhai';
     background-color:  #EEEEEE;         
     border: 2px solid #9370DB;
     margin: 5% 0;
@@ -42,6 +42,7 @@ const Prices = styled.span `
 `
 
 const Button = styled.button `
+   font-family: 'Baloo Bhai';
    width: 30%;
    background-color: #9370DB;
    border-radius: 3px;
