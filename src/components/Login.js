@@ -36,16 +36,12 @@ const LoginWrapper = styled.div `
   h1 {
     text-align: center;
     margin-bottom: -6%;
-    color: #9370DB
-
-   
-
+    color: #9370DB;
   }
   h2 {
     text-align: center;
-    color: #9370DB
+    color: #9370DB;
     font-size: 1.3rem;
-
     
   }
 `
@@ -63,7 +59,7 @@ const LoginForm = styled.form`
   flex-direction: column;
   padding: 2%;
   margin-top: 10%;
-
+  
 `;
 
 const LoginInput = styled.input`
