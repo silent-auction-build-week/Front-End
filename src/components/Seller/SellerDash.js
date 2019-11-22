@@ -64,17 +64,6 @@ const SellerDash = () => {
   /* ------------------------------------------------*/
   return (
     <MainDiv>
-<<<<<<< HEAD
-      <HeaderWrapper>
-        <Hdr />
-      </HeaderWrapper>
-      <SearchForm auctions={activeAuctions} newAuction={newAuction} setNewAuction={setNewAuction} makeNewAuction={makeNewAuction} />
-
-      <BidderWrapper>{}
-
-      </BidderWrapper>
-    </MainDiv>
-=======
 
     <SearchForm auctions={activeAuctions} newAuction={newAuction} setNewAuction={setNewAuction} makeNewAuction={makeNewAuction} /> 
       
@@ -82,7 +71,6 @@ const SellerDash = () => {
                    
           </BidderWrapper>
       </MainDiv>
->>>>>>> 6da22a37dd90abde1d6403cdc98a8c77d393b134
   );
 };
 /* ------------------------------------------------*/
