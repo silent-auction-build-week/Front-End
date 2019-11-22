@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Countdown from "react-countdown-now";
+
 
 const AuctionBox = styled.div`
     
@@ -15,17 +17,17 @@ const AuctionBox = styled.div`
     p {
        
         font-size: 1rem;
-        margin: 2% 4%;      
+        margin: 2%      
     }
     h1 {
-        margin: 2%;
+       margin: 2%;
         color: #9370DB;
     }
     
     
 `
 const AuctionBody = styled.div`
-  width: 100%;
+  // max-width: 100%;
   height: 100%;
   
   
@@ -45,8 +47,6 @@ const Button = styled.button `
    border-radius: 3px;
    height: 30px;
    margin-bottom: 3%;
-   font-family: 'Baloo Bhai';
-   font-size: 1.3rem;
 `
 
 const Form = styled.form `
@@ -73,6 +73,11 @@ const AuctionCard = props => {
     id: props.item.id
   });
 
+  const changeHandler = event => {
+    props.setNewAuction({...props.newAuction, [event.target.name]: event.target.value });
+  };
+
+
   const itemBidding = item => {
     setBidding(true);
     setItemToBidOn(item);
@@ -81,34 +86,43 @@ const AuctionCard = props => {
   return (
     <AuctionBody>
       <AuctionBox>
-        {/* add props for auction */}
+        {}
         <div>
-        <ImgItem src={props.item.img_url} alt="items" />
         </div>
         <h1>{props.item.item_name}</h1>
         <div>
-          <p>{props.item.description}</p>
+        <h1> Auction Created By {props.item.firstName} {props.item.lastName} </h1>
+        <h1> Countdown <Countdown date={props.item.auction_end} /> </h1>
         </div>
         
         <Prices>${props.item.price}</Prices>
-        <Button onClick={() => itemBidding(props.item)}>Bid</Button>
+        <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
         {bidding && (
 
           <Form  onSubmit={(e) => props.saveBid(e, itemToBidOn)}>
 
-            <legend>place bid</legend>
+            {/* <legend>place bid</legend> */}
             <label>
-              bid amount:
+              Set Auction Start:
               <input
-                onChange={e =>
-                  setItemToBidOn({ ...itemToBidOn, price: e.target.value })
-                }
-                value={itemToBidOn.price}
+                type="datetime-local"
+                onChange={changeHandler}
+                value={props.newAuction.auction_start}
               />
             </label>
+            
+            <label>
+              Set Auction End:
+              <input
+                type="datetime-local"
+                onChange={changeHandler}
+                value={props.newAuction.auction_end}
+              />
+            </label>
+
             <div className="button-row">
-              <Button type="submit">place bid</Button>
-              <Button onClick={() => setBidding(false)}>cancel</Button>
+              <button type="submit">Create</button>
+              <button onClick={() => setBidding(false)}>cancel</button>
             </div>
           </Form >
         )}
