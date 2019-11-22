@@ -6,6 +6,7 @@ const Form = styled.form`
     font-size: 1.1rem;
     color: #9370DB;
     margin-bottom: 3%;
+    
 
 `
 /* ------------------------------------------------*/

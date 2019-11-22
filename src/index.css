@@ -8,16 +8,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/login-bg.jpg'); 
+  background-image: url("./assets/background-869596_1280.png"); 
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size:cover;
 }
 #root {
+  
   width: 1000px;
   height: 100%;
   padding: 5%;
  
+  
 
 }
 code {
@@ -30,6 +32,38 @@ code {
   height: 100%;
   margin-left: 40%;
   text-align: left;
-  
-  
+   
+}
+.item-name{
+  width: 65%;
+  height: 20px;
+  border: 1px solid #9370DB;
+  border-radius: 3px;
+  margin-left: 1.20rem;
+}
+.end-date{
+  border: 1px solid #9370DB;
+  height: 20px;
+  border-radius: 3px;
+  margin-left: 2.15rem;
+  margin-top: 6%;
+}
+.start-bid{
+  margin-top: 6%;
+  margin-left: 6.5rem;
+  border: 1px solid #9370DB;
+  margin-bottom: 4%;
+  width: 20%;
+  height: 25px;
+  border-radius: 3px;
+}
+.desc-title{
+  margin-bottom: -3rem;
+}
+.descrip {
+  border: 1px solid #9370DB;
+  border-radius: 3px;
+  width: 65%;
+  margin-left: 1rem;
+  margin-bottom: -1rem;
 }

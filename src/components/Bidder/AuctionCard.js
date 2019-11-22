@@ -5,8 +5,7 @@ const AuctionBox = styled.div`
     
     background-color:  #EEEEEE;         
     border: 2px solid #9370DB;
-    margin: 5% 0;
-    margin: 2%;
+    margin: 3% 7% 0 0;
     width: 400px;
     height: 100%;    
     border-radius: 10px;
@@ -15,23 +14,16 @@ const AuctionBox = styled.div`
     p {
        
         font-size: 1rem;
-        margin: 2%      
+        margin: 2% 4%;      
     }
     h1 {
-       margin: 2%;
+        margin: 2%;
         color: #9370DB;
     }
     
     
 `
-const AuctionBody = styled.div`
-  // max-width: 100%;
-  height: 100%;
-  
-  
-  
 
-`
 const Prices = styled.span `
     margin: 0 20%;
     color: #9370DB;
@@ -45,6 +37,8 @@ const Button = styled.button `
    border-radius: 3px;
    height: 30px;
    margin-bottom: 3%;
+   font-family: 'Baloo Bhai';
+   font-size: 1.3rem;
 `
 
 const Form = styled.form `
@@ -77,7 +71,7 @@ const AuctionCard = props => {
   };
 
   return (
-    <AuctionBody>
+    
       <AuctionBox>
         {/* add props for auction */}
         <div>
@@ -89,7 +83,7 @@ const AuctionCard = props => {
         </div>
         
         <Prices>${props.item.price}</Prices>
-        <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
+        <Button onClick={() => itemBidding(props.item)}>Bid</Button>
         {bidding && (
 
           <Form  onSubmit={(e) => props.saveBid(e, itemToBidOn)}>
@@ -105,13 +99,13 @@ const AuctionCard = props => {
               />
             </label>
             <div className="button-row">
-              <button type="submit">place bid</button>
-              <button onClick={() => setBidding(false)}>cancel</button>
+              <Button type="submit">place bid</Button>
+              <Button onClick={() => setBidding(false)}>cancel</Button>
             </div>
           </Form >
         )}
       </AuctionBox>
-    </AuctionBody>
+    
   );
 };
 

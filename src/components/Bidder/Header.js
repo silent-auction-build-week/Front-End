@@ -1,6 +1,10 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Login from '../Login';
+import SellerDash from '../Seller/SellerDash';
+import BidderDash from '../Bidder/BidderDash';
+
 
 
 const Hdr = styled.header`
@@ -50,31 +54,33 @@ const Image = styled.img`
     margin-top: 
 `
 
+const exclusionArray = [
+    '../Login.js',
+    '../Signup.js'
+]
 
-
-const Header = () => {
+const Header = ({location}) => {
 
     return (
-        <div>
+    <div>
+        
+        
+          <Hdr>
+            <ImageWrapper>
+                <Image src={require('./logoforheader.png')} />
+            </ImageWrapper>
+            <h2>The Dashboard</h2>
+            
+            <nav>
+            <NavLink exact to='/signup'>Home</NavLink>
+            <NavLink  exact to='/'>Log-In</NavLink>
+            <NavLink to='/bidder-dash'>Bids</NavLink>
+            <NavLink to='/seller-dash'>Auctions</NavLink>
+            </nav>
+          </Hdr>
+          
 
-            <Hdr>
-                <ImageWrapper>
-                    <Image src="https://via.placeholder.com/150" />
-                </ImageWrapper>
-                <h2>Dashboard</h2>
-
-                <nav>
-                    <NavLink exact to ='/'>Home</NavLink>
-                    <NavLink exact to ='#'>Account</NavLink>
-                    <NavLink exact to ='#'>Bids</NavLink>
-                    <NavLink exact to ='#'>Payment</NavLink>
-                </nav>
-            </Hdr>
-
-            <Route exact path='' />
-
-
-        </div>
+    </div>
 
 
     )

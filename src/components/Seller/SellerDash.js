@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
-import Hdr from './Header';
+
 import SearchForm from './SearchForm';
 /* ------------------------------------------------*/
 const MainDiv = styled.div`
@@ -64,6 +64,7 @@ const SellerDash = () => {
   /* ------------------------------------------------*/
   return (
     <MainDiv>
+<<<<<<< HEAD
       <HeaderWrapper>
         <Hdr />
       </HeaderWrapper>
@@ -73,6 +74,15 @@ const SellerDash = () => {
 
       </BidderWrapper>
     </MainDiv>
+=======
+
+    <SearchForm auctions={activeAuctions} newAuction={newAuction} setNewAuction={setNewAuction} makeNewAuction={makeNewAuction} /> 
+      
+             <BidderWrapper>{}
+                   
+          </BidderWrapper>
+      </MainDiv>
+>>>>>>> 6da22a37dd90abde1d6403cdc98a8c77d393b134
   );
 };
 /* ------------------------------------------------*/

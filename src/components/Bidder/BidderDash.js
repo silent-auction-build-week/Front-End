@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
-import Hdr from './Header';
+
 
 const MainDiv = styled.div `
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Baloo Bhai';
+    justify-content: center;
 `
 
 const HeaderWrapper = styled.div `
@@ -14,14 +18,7 @@ const HeaderWrapper = styled.div `
 
 `
 
-const BidderWrapper = styled.div `
-    align-items: center;
-    
-    width: 800px;
-    font-family: 'Baloo Bhai';
-    border-radius: 3px;
-  
-`
+
 
 const BidderDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
@@ -72,10 +69,8 @@ const BidderDash = () => {
 
   return (
     <MainDiv>
-       <HeaderWrapper>         
-         <Hdr/>
-       </HeaderWrapper>
-         <BidderWrapper>
+ 
+         
             {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
@@ -83,7 +78,7 @@ const BidderDash = () => {
                     saveBid={saveBid}
                 />)} 
                    
-          </BidderWrapper>
+         
       </MainDiv>
   );
 };
