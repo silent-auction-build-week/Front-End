@@ -8,7 +8,6 @@ import Login from "./components/Login";
 import BidderDash from './components/Bidder/BidderDash';
 import PrivateRoute from "./components/PrivateRoute";
 import SellerDash from "./components/Seller/SellerDash";
-import newAuction from "./components/Seller/newAuction";
 import "./App.css";
 
 
@@ -25,7 +24,6 @@ function App() {
       <AppDiv>
         {/* <BidderDash/> */}
         {/* <ItemCard/> */}
-        <PrivateRoute exact path="/newAuction" component={newAuction} />
         <PrivateRoute exact path="/bidder-dash" component={BidderDash}/>
         <PrivateRoute exact path="/seller-dash" component={SellerDash}/>
         <Route exact path="/" component={Login} />
