@@ -9,6 +9,7 @@ const MainDiv = styled.div `
     display: flex;
     flex-wrap: wrap;
     font-family: 'Baloo Bhai';
+    justify-content: center;
 `
 
 const HeaderWrapper = styled.div `
@@ -17,12 +18,7 @@ const HeaderWrapper = styled.div `
 
 `
 
-const BidderWrapper = styled.div `
-    align-items: center;   
-    width: 800px;
-    border-radius: 3px;
-  
-`
+
 
 const BidderDash = () => {
   const [activeAuctions, setActiveAuctions] = useState([]);
@@ -76,7 +72,7 @@ const BidderDash = () => {
        <HeaderWrapper>         
          <Hdr/>
        </HeaderWrapper>
-         {/* <BidderWrapper> */}
+         
             {activeAuctions.map(live =>                
                 <AuctionCard    
                     key={live.id} 
@@ -84,7 +80,7 @@ const BidderDash = () => {
                     saveBid={saveBid}
                 />)} 
                    
-          {/* </BidderWrapper> */}
+         
       </MainDiv>
   );
 };

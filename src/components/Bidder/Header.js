@@ -61,7 +61,7 @@ const Header = () => {
             <ImageWrapper>
                 <Image src={require('./logoforheader.png')} />
             </ImageWrapper>
-            <h2>Bidder Dashboard</h2>
+            <h2>The Dashboard</h2>
             
             <nav>
             <NavLink to='home'>Home</NavLink>

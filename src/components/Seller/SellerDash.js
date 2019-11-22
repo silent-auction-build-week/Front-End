@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import AuctionCard from './AuctionCard';
-import Hdr from './Header';
+// import Hdr from './Header';
 import SearchForm from './SearchForm';
 
 /* ------------------------------------------------*/
@@ -87,9 +87,9 @@ const [newAuction, setNewAuction] = useState({
 
   return (
     <MainDiv>
-       <HeaderWrapper>         
+       {/* <HeaderWrapper>         
          <Hdr/>
-       </HeaderWrapper>
+       </HeaderWrapper> */}
     <SearchForm auctions={activeAuctions} newAuction={newAuction} setNewAuction={setNewAuction} makeNewAuction={makeNewAuction} /> 
       
              <BidderWrapper>{}

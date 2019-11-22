@@ -5,8 +5,7 @@ const AuctionBox = styled.div`
     
     background-color:  #EEEEEE;         
     border: 2px solid #9370DB;
-    margin: 7% 7% 0 0;
-    justify-content: center;
+    margin: 3% 7% 0 0;
     width: 400px;
     height: 100%;    
     border-radius: 10px;
