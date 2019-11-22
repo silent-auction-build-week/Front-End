@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AuctionCard from "./AuctionCard";
-import newAuction from "./newAuction";
 
 
 const StyledCard = styled.div`
