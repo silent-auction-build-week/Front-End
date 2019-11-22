@@ -23,17 +23,17 @@ const AuctionBox = styled.div`
     p {
        
         font-size: 1rem;
-        margin: 2%      
+        margin: 2% 4%;      
     }
     h1 {
-       margin: 2%;
+        margin: 2%;
         color: #9370DB;
     }
     
     
 `
 const AuctionBody = styled.div`
-  // max-width: 100%;
+  width: 100%;
   height: 100%;
   
   
@@ -53,6 +53,8 @@ const Button = styled.button `
    border-radius: 3px;
    height: 30px;
    margin-bottom: 3%;
+   font-family: 'Baloo Bhai';
+   font-size: 1.3rem;
 `
 
 const Form = styled.form `
@@ -101,7 +103,7 @@ const saveBid = e => {
         </div>
         
         <Prices>${props.item.price}</Prices>
-        <Button onClick={() => itemBidding(props.item)}>Bid on Item</Button>
+        <Button onClick={() => itemBidding(props.item)}>Bid</Button>
         {bidding && (
           <Form  onSubmit={saveBid}>
             <legend>place bid</legend>
@@ -115,8 +117,8 @@ const saveBid = e => {
               />
             </label>
             <div className="button-row">
-              <button type="submit">place bid</button>
-              <button onClick={() => setBidding(false)}>cancel</button>
+              <Button type="submit">place bid</Button>
+              <Button onClick={() => setBidding(false)}>cancel</Button>
             </div>
           </Form >
         )}

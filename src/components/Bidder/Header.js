@@ -45,6 +45,8 @@ const ImageWrapper = styled.div `
 `
 
 const Image = styled.img `
+    margin-top: .5%;
+    margin-left: .5%;
     position: absolute;
     height: 150px;
     margin-top: 
@@ -59,7 +61,7 @@ const Header = () => {
 
         <Hdr>
             <ImageWrapper>
-                <Image src="https://via.placeholder.com/150" />
+                <Image src={require('./logoforheader.png')} />
             </ImageWrapper>
             <h2>Bidder Dashboard</h2>
             

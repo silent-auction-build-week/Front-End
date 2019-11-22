@@ -23,11 +23,7 @@ const BidderWrapper = styled.div `
   
 `
 
-const Footer = styled.footer `
-width: 100%;
-height: 100%;
-border: 1px solid #FFCC66;;
-`
+
 
 
 
@@ -68,10 +64,8 @@ const BidderDash = () => {
                 <AuctionCard    
                     key={live.id} 
                     item={live}
-                />)}; 
-            <Footer>
-                
-            </Footer>                   
+                />)} 
+                   
           </BidderWrapper>
       </MainDiv>
     )
