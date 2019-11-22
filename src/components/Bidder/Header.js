@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route, withRouter, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Login from '../Login';
 import SellerDash from '../Seller/SellerDash';
@@ -64,7 +64,7 @@ const Header = ({location}) => {
     return (
     <div>
         
-        {/* <Router>
+        
           <Hdr>
             <ImageWrapper>
                 <Image src={require('./logoforheader.png')} />
@@ -72,20 +72,14 @@ const Header = ({location}) => {
             <h2>The Dashboard</h2>
             
             <nav>
-            <NavLink exact to='/'>Home</NavLink>
-            <NavLink  exact to='../Login.js'>Log-In</NavLink>
-            <NavLink to='../Bidder/BidderDash.js/'>Bids</NavLink>
-            <NavLink to='../Seller/SellerDash.js/'>Auctions</NavLink>
+            <NavLink exact to='/signup'>Home</NavLink>
+            <NavLink  exact to='/'>Log-In</NavLink>
+            <NavLink to='/bidder-dash'>Bids</NavLink>
+            <NavLink to='/seller-dash'>Auctions</NavLink>
             </nav>
           </Hdr>
-          {exclusionArray.indexOf(location.pathname) < 0 && <Header/>}
-         <Switch>
-            <Route exact path='/' component={Login}/>
-            <Route exact path='/log-in' component={Login}/>
-            <Route exact path ='/bids' component={BidderDash}/>
-            <Route exact path ='/auctions' component={SellerDash}/>
-         </Switch>
-        </Router> */}
+          
+
     </div>
 
 
@@ -95,4 +89,4 @@ const Header = ({location}) => {
 
 
 
-export default withRouter(Header);
+export default Header;

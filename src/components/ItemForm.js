@@ -26,7 +26,6 @@ const UploadButton = styled.button`
     justify-content: center;
     margin-left: 23.2%
     margin-top: 2%;
-    border: 1px solid #FFCC66;
     border-radius: 3px;
     border: 1px solid #9370DB;
     color: #9370DB;
