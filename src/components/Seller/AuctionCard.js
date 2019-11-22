@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Countdown from "react-countdown-now";
 
+
 const AuctionBox = styled.div`
     
     background-color:  #EEEEEE;         
@@ -72,6 +73,11 @@ const AuctionCard = props => {
     id: props.item.id
   });
 
+  const changeHandler = event => {
+    props.setNewAuction({...props.newAuction, [event.target.name]: event.target.value });
+  };
+
+
   const itemBidding = item => {
     setBidding(true);
     setItemToBidOn(item);
@@ -95,18 +101,27 @@ const AuctionCard = props => {
 
           <Form  onSubmit={(e) => props.saveBid(e, itemToBidOn)}>
 
-            <legend>place bid</legend>
+            {/* <legend>place bid</legend> */}
             <label>
-              bid amount:
+              Set Auction Start:
               <input
-                onChange={e =>
-                  setItemToBidOn({ ...itemToBidOn, price: e.target.value })
-                }
-                value={itemToBidOn.price}
+                type="datetime-local"
+                onChange={changeHandler}
+                value={props.newAuction.auction_start}
               />
             </label>
+            
+            <label>
+              Set Auction End:
+              <input
+                type="datetime-local"
+                onChange={changeHandler}
+                value={props.newAuction.auction_end}
+              />
+            </label>
+
             <div className="button-row">
-              <button type="submit">place bid</button>
+              <button type="submit">Create</button>
               <button onClick={() => setBidding(false)}>cancel</button>
             </div>
           </Form >

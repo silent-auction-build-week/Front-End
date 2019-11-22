@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AuctionCard from "./AuctionCard";
+import newAuction from "./newAuction";
+
 
 const StyledCard = styled.div`
     display: flex;
@@ -29,16 +31,20 @@ export default function SearchForm(props) {
        <input type="text" name="textfield" placeholder="Search" value={searchTerm} onChange={handleChange} />
      </form>
 
+        <button onClick={<newAuction newAuction={props.newAuction} setNewAuction={props.setNewAuction} makeNewAuction={props.makeNewAuction} />}>
+            Create A New Auction
+        </button>
+
       {
         searchResults.length === 0
         ? (<StyledCard>
         {props.auctions.map(live => (
-          <AuctionCard key={live.id} item={live} />
+          <AuctionCard key={live.id} newAuction={props.newAuction} setNewAuction={props.setNewAuction} item={live} />
         ))}
       </StyledCard>) 
       : (<StyledCard>
         {searchResults.map(live => (
-          <AuctionCard key={live.id} item={live} />
+          <AuctionCard key={live.id} newAuction={props.newAuction} setNewAuction={props.setNewAuction} item={live} />
         ))}
       </StyledCard>)
       }
@@ -46,6 +52,3 @@ export default function SearchForm(props) {
   </section>
   );
 }
-
-//
-

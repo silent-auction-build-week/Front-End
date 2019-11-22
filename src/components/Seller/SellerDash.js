@@ -47,6 +47,14 @@ const SellerDash = () => {
 
 /* ------------------------------------------------*/
 
+const [newAuction, setNewAuction] = useState({
+    itemId: Date.now(),
+    auction_start: "",
+    auction_end: ""
+});
+
+/* ------------------------------------------------*/
+
   useEffect(() => {
     axios
       .get("https://silent-auction-be.herokuapp.com/api/auctions")
@@ -61,16 +69,16 @@ const SellerDash = () => {
 
 /* ------------------------------------------------*/
 
-  const saveBid = (e, item) => {
+  const makeNewAuction = (e, item) => {
     const authAxios = axiosWithAuth();
     e.preventDefault();
     authAxios
-      .put(`https://silent-auction-be.herokuapp.com/api/items/${item.id}`, item)
-      .then(response => {
-        let newAuctions = activeAuctions.filter(items => items.id !== item.id);
-        newAuctions.push(response.data.updatedItem[0]);
+    .post(`https://silent-auction-be.herokuapp.com/${userId}/${newAuction.itemId}/auctions`, newAuction.auction_start, newAuction.auction_end)
+    .then(response => {
+        // let newAuctions = activeAuctions.filter(items => items.id !== item.id);
+        // newAuctions.push(response.data.updatedItem[0]);
 
-        setActiveAuctions(newAuctions);
+        // setActiveAuctions(newAuctions);
       })
       .catch(error => console.log(error));
   };
@@ -82,15 +90,9 @@ const SellerDash = () => {
        <HeaderWrapper>         
          <Hdr/>
        </HeaderWrapper>
-       <SearchForm auctions={activeAuctions} /> 
+    <SearchForm auctions={activeAuctions} newAuction={newAuction} setNewAuction={setNewAuction} makeNewAuction={makeNewAuction} /> 
       
-             <BidderWrapper>
-            {/* {activeAuctions.map(live =>                
-                <AuctionCard    
-                    key={live.id} 
-                    item={live}
-                    saveBid={saveBid}
-                />)}  */}
+             <BidderWrapper>{}
                    
           </BidderWrapper>
       </MainDiv>
