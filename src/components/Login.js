@@ -2,20 +2,92 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+
+
+const GlobalStyle = createGlobalStyle `
+  body {
+   
+  }
+  #root {
+    
+  }
+`
+const Bodywrapper = styled.div `
+ 
+`
+const TheSelect = styled.select `
+  height: 25px;
+  color: #9370DB;
+  font-size: .75rem;
+  border: 2px solid #9370DB; 
+`
+
+const LoginWrapper = styled.div `
+  font-size: 1.2rem;
+  font-family: 'Baloo Bhai';
+  border: 2px solid #9370DB;  
+  margin-left: 37%;
+  margin-top: 5%;
+  width: 17rem;
+  height: 25rem;
+  background-color: #EEEEEE;
+  border-radius: 7px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  font-size: .75rem;
+  h1 {
+    text-align: center;
+    margin-bottom: -6%;
+    color: #9370DB;
+  }
+  h2 {
+    text-align: center;
+    color: #9370DB;
+    font-size: 1.3rem;
+    
+  }
+`
+const Image = styled.img `
+  
+  width: 230px;
+  height: 30%;
+  
+  
+`
 
 const LoginForm = styled.form`
+ 
   display: flex;
   flex-direction: column;
   padding: 2%;
-  margin-top: 60px;
+  margin-top: 10%;
+  
 `;
 
 const LoginInput = styled.input`
+  font-size: 1.2rem;
+  height: 25px;
   margin: 2%;
+  border: 2px solid #9370DB;
+  border-radius: 5px;
 `;
 
 const LoginButtons = styled.button`
-  margin: 2%;
+  font-family: 'Baloo Bhai';
+  font-size: 1.2rem;
+  margin-top: 10%;
+  border: 2px solid #9370DB;
+  border-radius: 5px;
+  width: 50%;
+  height: 30px;
+  align-items: center;
+  margin-left: 3.5rem;
+  color: #9370DB;
+  text-align: center;
+  
+
+
 `;
 
 const Login = props => {
@@ -45,6 +117,7 @@ const Login = props => {
           .then(response => {
             console.log("registration response", response)
             localStorage.setItem('token', response.data.token)
+            localStorage.setItem('userId', response.data.user.id)
             if(userType === "bidders"){
               props.history.push('/bidder-dash')
             } else {
@@ -55,7 +128,12 @@ const Login = props => {
       };
 
     return(
-        <>
+    
+     
+        <LoginWrapper  >
+         <h1>Bids of Silence</h1>
+         <h2>Log-In</h2>
+        
         <div className="login">
             <LoginForm onSubmit={handleSubmit}>
             <LoginInput
@@ -72,7 +150,7 @@ const Login = props => {
             value={user.password}
             type="password"
           />
-          <select
+          <TheSelect
             name="userType"
             placeholder="User Type"
             onChange={handleChange}
@@ -82,12 +160,15 @@ const Login = props => {
             <option value="">Please make a selection</option>
             <option value="bidders">Bidder</option>
             <option value="sellers">Seller</option>
-          </select>
+          </TheSelect>
           <LoginButtons>Login</LoginButtons>
           <LoginButtons><Link to='signup'>Sign Up</Link></LoginButtons>
             </LoginForm>
         </div>
-        </>
+      </LoginWrapper>
+     
+    
+        
     )
 }
 

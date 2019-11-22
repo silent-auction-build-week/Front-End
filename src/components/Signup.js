@@ -2,20 +2,89 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from 'styled-components';
 
+
 const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 2%;
-  margin-top: 60px;
-`;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background-color: #EEEEEE;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  font-family: 'Baloo Bhai';
+  border: 2px solid #9370DB;
+  h1 {
+    text-align: center;
+    margin-bottom: -3%;
+    color: #9370DB;
+  }
+  h2 {
+    text-align: center;
+    color: #9370DB;
+    font-size: 1.3rem;
+    
+  }
+  
+  // padding: 2%;
+  // margin-top: 60px;
+  
+  
+`
 
 const SignupInput = styled.input`
   margin: 2%;
-`;
+  border-radius: 1px;
+  height: 20px;
+  width: 70%;
+  font-size: 1.2rem;
+  border: 2px solid #9370DB;
+  align-items: center;
+`
+const ZipInput = styled.input`
+  margin: 2%;
+  border-radius: 1px;
+  height: 20px;
+  width: 150px;
+  font-size: 1.2rem;
+  border: 2px solid #9370DB;
+`
+const StateInput = styled.input`
+  margin: 2%;
+  border-radius: 1px;
+  height: 20px;
+  width: 50px;
+  font-size: 1.2rem;
+  border: 2px solid #9370DB;
+`
+const CityInput = styled.input`
+  
+  margin: 2%;
+  border-radius: 1px;
+  height: 20px;  
+  font-size: 1.2rem;
+  border: 2px solid #9370DB;
+`
+const SignUpSelect = styled.select`
+  display: flex;
+  height: 25px;
+  width: 50%;
+  margin-left: 2%;
+  align-content: center;
+  font-size: .75rem;
+  border: 2px solid #9370DB;
+
+`
 
 const SignupButtons = styled.button`
-  margin: 2%;
-`;
+  margin: 4%;
+  width: 30%;
+  height: 25px;
+  border-radius: 7px;
+  font-size: 1rem;
+  border: 2px solid #9370DB;
+`
+// start of Component
 
 const SignUp = props => {
   const [newUser, setNewUser] = useState({
@@ -56,9 +125,12 @@ const SignUp = props => {
   };
 
   return (
-    <>
+    
+
       <div className="signup">
         <SignupForm onSubmit={handleSubmit}>
+        <h1>Bids of Silence</h1>
+        <h2>Sign-Up</h2>
           <SignupInput
             name="firstName"
             placeholder="First Name"
@@ -87,21 +159,21 @@ const SignUp = props => {
             value={newUser.streetAddress}
             type="text"
           />
-          <SignupInput
+          <CityInput
             name="city"
             placeholder="City"
             onChange={handleChange}
             value={newUser.city}
             type="text"
           />
-          <SignupInput
+          <StateInput
             name="state"
             placeholder="State"
             onChange={handleChange}
             value={newUser.state}
             type="text"
           />
-          <SignupInput
+          <ZipInput
             name="zipCode"
             placeholder="Zip"
             onChange={handleChange}
@@ -122,7 +194,7 @@ const SignUp = props => {
             value={newUser.password}
             type="password"
           />
-          <select
+          <SignUpSelect
             name="userType"
             placeholder="User Type"
             onChange={handleChange}
@@ -132,11 +204,11 @@ const SignUp = props => {
             <option value="">Please make a selection</option>
             <option value="bidders">Bidder</option>
             <option value="sellers">Seller</option>
-          </select>
+          </SignUpSelect>
           <SignupButtons>Submit</SignupButtons>
         </SignupForm>
       </div>
-    </>
+    
   );
 };
 
