@@ -16,16 +16,20 @@ const Img = styled.img `
 const FileSelect = styled.div`    
     width: 350px;
     margin-top: 4% 0;
-    margin-left: 30%;
-    padding: 4%;   
+    margin-left: 19%;
+    padding: 4%; 
+    color: #9370DB;  
 `
 const UploadButton = styled.button`
-    
-    width: 20%;
+    height: 25px;
+    width: 22%;
     justify-content: center;
-    margin-left: 35%
+    margin-left: 23.2%
+    margin-top: 2%;
     border: 1px solid #FFCC66;
     border-radius: 3px;
+    border: 1px solid #9370DB;
+    color: #9370DB;
 `
 const ItemBox = styled.div `
     overflow: auto;
@@ -33,7 +37,7 @@ const ItemBox = styled.div `
     width: 200px;
     height: 250px;
     padding: 4%;
-    margin-left: 22%;
+    margin-left: 25%;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     background: #fff;
@@ -55,17 +59,17 @@ const form = styled(Form) `
 `
 
 
-const Button = styled.button `
-    width 25%;
-    height: 10%;
-    margin-left: 25%;
-    margin-top: 3%;
-    margin-bottom: 5%;
-    border-radius: 6px;
-    font-size: 1.2rem;
-    border: 1px solid grey;
+// const Button = styled.button `
+//     width 25%;
+//     height: 10%;
+//     margin-left: 25%;
+//     margin-top: 3%;
+//     margin-bottom: 5%;
+//     border-radius: 6px;
+//     font-size: 1.2rem;
+//     border: 1px solid grey;
    
-`
+// `
 const ButtonWrapper = styled.div `
     margin: 4%;
 `
